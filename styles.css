@@ -1,3 +1,7 @@
+:root {
+  --color: white;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -28,6 +32,7 @@ body {
   justify-items: center;
   padding-bottom: 10px;
   overflow-y: scroll;
+  width: 100vw;
 }
 
 #titleSection {
@@ -37,7 +42,6 @@ body {
 }
 
 .beerContent {
-  background-color: purple;
   height: 300px;
   width: 350px;
   margin: 15px 0 0 0;
@@ -48,14 +52,21 @@ body {
     "name name ibu abv"
     "tagLine tagLine tagLine tagLine"
     "favorite favorite learnMore learnMore";
-  gap: 5px;
-  color: white;
+  color: black;
   font-size: 0.9em;
+  opacity: 0.95;
+  font-weight: bold;
+}
+
+button {
+  padding: 0;
+  border: 0;
+  font-weight: bolder;
 }
 
 .name {
   grid-area: name;
-  background-color: blue;
+  background-color: var(--color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,7 +74,7 @@ body {
 
 .ibu {
   grid-area: ibu;
-  background-color: blue;
+  background-color: var(--color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -71,7 +82,7 @@ body {
 
 .abv {
   grid-area: abv;
-  background-color: blue;
+  background-color: var(--color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,7 +90,7 @@ body {
 
 .tagLine {
   grid-area: tagLine;
-  background-color: blue;
+  background-color: var(--color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,25 +98,25 @@ body {
 
 .favorite {
   grid-area: favorite;
-  background-color: blue;
-  color: white;
+  background-color: var(--color);
+  color: red;
   transition: all 0.35s ease-in-out;
 }
 
 .favorite:hover {
-  background-color: lightskyblue;
+  background-color: rgb(201, 201, 201);
   transition: all 0.35s ease-in-out;
 }
 
 .learnMore {
   grid-area: learnMore;
-  background-color: blue;
-  color: white;
+  background-color: var(--color);
+  color: red;
   transition: all 0.35s ease-in-out;
 }
 
 .learnMore:hover {
-  background-color: lightskyblue;
+  background-color: rgb(201, 201, 201);
   transition: all 0.35s ease-in-out;
 }
 
@@ -168,3 +179,51 @@ body {
   transition: all 0.35s ease-in-out;
 }
 
+#learnMore {
+  display: none;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 100vw;
+  grid-template-areas:
+    "name name favorites image"
+    "learnMoreIbu learnMoreAbv firstbrewed image"
+    "foodpairing foodpairing foodpairing image"
+    "learnMoreDescription learnMoreDescription learnMoreDescription back";
+  background-color: yellow;
+}
+
+#learnMoreName {
+  grid-area: name;
+}
+
+#learnMoreIbu {
+  grid-area: learnMoreIbu;
+}
+
+#learnMoreAbv {
+  grid-area: learnMoreAbv;
+}
+
+#learnMoreImage {
+  grid-area: image;
+}
+
+#learnMoreDescription {
+  grid-area: learnMoreDescription;
+}
+
+#learnMoreFoodPairings {
+  grid-area: foodpairing;
+}
+
+#learnMoreFirstBrewed {
+  grid-area: firstbrewed;
+}
+
+#learnMoreFavorites{
+  grid-area: favorites;
+}
+
+#backButton {
+  grid-area: back;
+}
