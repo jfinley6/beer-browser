@@ -29,9 +29,21 @@ function renderBeer(beerArr) {
         favorite.classList.add("favorite")
         favorite.innerHTML = "Add to Favorites ♥"
         let learnMore = document.createElement("button")
+        learnMore.setAttribute("onclick", onclick = "loadLearnMore(event)")
         learnMore.classList.add("learnMore")
         learnMore.innerHTML = "Learn More"
 
         beerContent.append(name,ibu,abv,tagLine, favorite, learnMore)
     });
 }
+
+function loadLearnMore(e){
+    
+}
+
+
+//Learn More button - when clicked => pulls up in content section - name, image, and additional information
+
+// Add Favorites button - sends beer and info into a list
+
+// 
