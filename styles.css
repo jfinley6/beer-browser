@@ -49,32 +49,32 @@ body {
     gap: 5px;
 }
 
-#name {
+.name {
     grid-area: name;
     background-color: blue;
 }
 
-#ibu{
+.ibu{
     grid-area: ibu;
     background-color: blue;
 }
 
-#abv {
+.abv {
     grid-area: abv;
     background-color: blue;
 }
 
-#tagLine {
+.tagLine {
     grid-area: tagLine;
     background-color: blue;
 }
 
-#description {
+.description {
     grid-area: description;
     background-color: blue;
 }
 
-#learnMore {
+.learnMore {
     grid-area: learnMore;
     background-color: blue;
 }
