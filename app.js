@@ -34,13 +34,15 @@ function renderBeer(beerArr) {
         learnMore.classList.add("learnMore")
         learnMore.innerHTML = "Learn More"
 
-        beerContent.append(name,ibu,abv,tagLine, favorite, learnMore)
+        beerContent.append(name, ibu, abv, tagLine, favorite, learnMore)
     });
 }
 
 function loadLearnMore(e) {
+    let beerBrowse = document.querySelector("#beerBrowse")
+    beerBrowse.style.gridTemplateColumns = "1fr"
     let learnMoreButton = document.querySelector("#learnMore")
-    learnMoreButton.style.display = "grid";
+    learnMoreButton.style.display = "inline-grid";
     beerContent = document.querySelectorAll(".beerContent")
     beerContent.forEach(beer => {
         beer.style.display = "none"
@@ -48,15 +50,16 @@ function loadLearnMore(e) {
 }
 
 function learnMoreBackButton(e) {
+    let beerBrowse = document.querySelector("#beerBrowse")
+    beerBrowse.style.gridTemplateColumns = "1fr 1fr 1fr"
     let learnMoreButton = document.querySelector("#learnMore")
     learnMoreButton.style.display = "none";
     beerContent = document.querySelectorAll(".beerContent")
     beerContent.forEach(beer => {
-        beer.style.display = "grid"  
-})
+        beer.style.display = "grid"
+    })
 }
 
-function setToFavorites(e){
+function setToFavorites(e) {
     console.log("hello")
 }
-
