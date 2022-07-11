@@ -32,6 +32,8 @@ body {
 
 #titleSection {
     margin-right: 500px;
+    display: flex;
+
 }
 
 .beerContent {
@@ -94,3 +96,21 @@ body {
     background-color: blue;
     color: white;
 }
+ #title {
+    color: black;
+    font-size: 40px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+    font-weight: bold;
+    font-family: Georgia;
+    -webkit-text-stroke: 1px white
+    
+
+ }
+
+ #FIS {
+    width: 200px;
+    height: auto;
+ }
