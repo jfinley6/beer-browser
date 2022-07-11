@@ -15,23 +15,23 @@ function renderBeer(beerArr) {
         document.querySelector("#beerBrowse").appendChild(beerContent);
         let name = document.createElement("div")
         name.classList.add("name")
-        name.textContent = beer.name
+        name.innerHTML = `Name:<br><br>${beer.name}`
         let ibu = document.createElement("div")
         ibu.classList.add("ibu")
-        ibu.textContent = beer.ibu
+        ibu.innerHTML = `IBU:<br><br>${beer.ibu}`
         let abv = document.createElement('div')
         abv.classList.add("abv")
-        abv.textContent = beer.abv
+        abv.innerHTML = `ABV:<br><br>${beer.abv}%`
         let tagLine = document.createElement("div")
         tagLine.classList.add("tagLine")
-        tagLine.textContent = beer.tagline
-        let description = document.createElement("div")
-        description.classList.add("description")
-        description.textContent = beer.description
+        tagLine.innerHTML = `Tagline:<br><br>'${beer.tagline}'`
+        let favorite = document.createElement("button")
+        favorite.classList.add("favorite")
+        favorite.innerHTML = "Add to Favorites ♥"
         let learnMore = document.createElement("button")
         learnMore.classList.add("learnMore")
-        learnMore.textContent = "Learn More"
+        learnMore.innerHTML = "Learn More"
 
-        beerContent.append(name,ibu,abv,tagLine, description, learnMore)
+        beerContent.append(name,ibu,abv,tagLine, favorite, learnMore)
     });
 }

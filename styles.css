@@ -45,36 +45,52 @@ body {
     grid-template-areas: 
             "name name ibu abv"
             "tagLine tagLine tagLine tagLine"
-            "description description description learnMore";
+            "favorite favorite learnMore learnMore";
     gap: 5px;
+    color: white;
+    font-size: 0.9em;
 }
 
 .name {
     grid-area: name;
     background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .ibu{
     grid-area: ibu;
     background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .abv {
     grid-area: abv;
     background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .tagLine {
     grid-area: tagLine;
     background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.description {
-    grid-area: description;
+.favorite {
+    grid-area: favorite;
     background-color: blue;
+    color: white;
 }
 
 .learnMore {
     grid-area: learnMore;
     background-color: blue;
+    color: white;
 }
