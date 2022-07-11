@@ -33,6 +33,7 @@ body {
 #titleSection {
     margin-right: 500px;
     display: flex;
+    width: 30vw;
 
 }
 
@@ -98,14 +99,14 @@ body {
 }
  #title {
     color: black;
-    font-size: 40px;
+    font-size: 2.5vw;
     white-space: nowrap;
     display: flex;
     align-items: center;
     margin-left: 50px;
     font-weight: bold;
     font-family: Georgia;
-    -webkit-text-stroke: 1px white
+    -webkit-text-stroke: 0.7px white
     
 
  }
@@ -113,4 +114,40 @@ body {
  #FIS {
     width: 200px;
     height: auto;
+ }
+
+ #browse {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10vw;
+ }
+
+ #browse:hover {
+    background-color: lightgreen;
+    cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+ }
+
+ #settings {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10vw;
+ }
+
+  #settings:hover {
+    background-color: lightgreen;
+    cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+ }
+
+ #favorites {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10vw;
+ }
+
+  #favorites:hover {
+    background-color: lightgreen;
+    cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
  }
