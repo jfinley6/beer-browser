@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    display: grid;
+    grid-template-rows: 0.2fr 0.2fr 1fr;
+    height: 100vh;
+}
+
+#navBar {
+    background-color: green;
+    display: grid;
+    grid-template-columns: 2fr 0.5fr 0.5fr 0.5fr;
+    align-content: center;
+    justify-items: center;
+}
+
+#filters {
+    background-color: red;
+}
+
+#beerBrowse {
+    background-color: yellow;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    padding-bottom: 10px;
+    overflow-y: scroll;
+}
+
+#titleSection {
+    margin-right: 500px;
+}
+
+.beerContent {
+    background-color: purple;
+    height: 300px;
+    width: 350px;
+    margin: 15px 0 0 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+            "name name ibu abv"
+            "tagLine tagLine tagLine tagLine"
+            "description description description learnMore";
+    gap: 5px;
+}
+
+#name {
+    grid-area: name;
+    background-color: blue;
+}
+
+#ibu{
+    grid-area: ibu;
+    background-color: blue;
+}
+
+#abv {
+    grid-area: abv;
+    background-color: blue;
+}
+
+#tagLine {
+    grid-area: tagLine;
+    background-color: blue;
+}
+
+#description {
+    grid-area: description;
+    background-color: blue;
+}
+
+#learnMore {
+    grid-area: learnMore;
+    background-color: blue;
+}
