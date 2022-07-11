@@ -1,153 +1,169 @@
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 #container {
-    display: grid;
-    grid-template-rows: 0.2fr 0.2fr 1fr;
-    height: 100vh;
+  display: grid;
+  grid-template-rows: 0.2fr 0.2fr 1fr;
+  height: 100vh;
 }
 
 #navBar {
-    background-color: green;
-    display: grid;
-    grid-template-columns: 2fr 0.5fr 0.5fr 0.5fr;
-    align-content: center;
-    justify-items: center;
+  background-color: green;
+  display: grid;
+  grid-template-columns: 2fr 0.5fr 0.5fr 0.5fr;
+  align-content: center;
+  justify-items: center;
 }
 
 #filters {
-    background-color: red;
+  background-color: red;
 }
 
 #beerBrowse {
-    background-color: yellow;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: center;
-    padding-bottom: 10px;
-    overflow-y: scroll;
+  background-color: yellow;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  padding-bottom: 10px;
+  overflow-y: scroll;
 }
 
 #titleSection {
-    margin-right: 500px;
-    display: flex;
-    width: 30vw;
-
+  margin-right: 500px;
+  display: flex;
+  width: 30vw;
 }
 
 .beerContent {
-    background-color: purple;
-    height: 300px;
-    width: 350px;
-    margin: 15px 0 0 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas: 
-            "name name ibu abv"
-            "tagLine tagLine tagLine tagLine"
-            "favorite favorite learnMore learnMore";
-    gap: 5px;
-    color: white;
-    font-size: 0.9em;
+  background-color: purple;
+  height: 300px;
+  width: 350px;
+  margin: 15px 0 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "name name ibu abv"
+    "tagLine tagLine tagLine tagLine"
+    "favorite favorite learnMore learnMore";
+  gap: 5px;
+  color: white;
+  font-size: 0.9em;
 }
 
 .name {
-    grid-area: name;
-    background-color: blue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  grid-area: name;
+  background-color: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.ibu{
-    grid-area: ibu;
-    background-color: blue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.ibu {
+  grid-area: ibu;
+  background-color: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .abv {
-    grid-area: abv;
-    background-color: blue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  grid-area: abv;
+  background-color: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .tagLine {
-    grid-area: tagLine;
-    background-color: blue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  grid-area: tagLine;
+  background-color: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .favorite {
-    grid-area: favorite;
-    background-color: blue;
-    color: white;
+  grid-area: favorite;
+  background-color: blue;
+  color: white;
+  transition: all 0.35s ease-in-out;
+}
+
+.favorite:hover {
+  background-color: lightskyblue;
+  transition: all 0.35s ease-in-out;
 }
 
 .learnMore {
-    grid-area: learnMore;
-    background-color: blue;
-    color: white;
+  grid-area: learnMore;
+  background-color: blue;
+  color: white;
+  transition: all 0.35s ease-in-out;
 }
- #title {
-    color: black;
-    font-size: 2.5vw;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    margin-left: 50px;
-    font-weight: bold;
-    font-family: Georgia;
-    -webkit-text-stroke: 0.7px white
-    
 
- }
+.learnMore:hover {
+  background-color: lightskyblue;
+  transition: all 0.35s ease-in-out;
+}
 
- #FIS {
-    width: 200px;
-    height: auto;
- }
+#title {
+  color: black;
+  font-size: 2.5vw;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+  font-weight: bold;
+  font-family: Georgia;
+  -webkit-text-stroke: 0.7px white;
+}
 
- #browse {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 10vw;
- }
+#FIS {
+  width: 200px;
+  height: auto;
+}
 
- #browse:hover {
-    background-color: lightgreen;
-    cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
- }
+#browse {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10vw;
+  transition: all 0.35s ease-in-out;
+}
 
- #settings {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 10vw;
- }
+#browse:hover {
+  background-color: lightgreen;
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+  transition: all 0.35s ease-in-out;
+}
 
-  #settings:hover {
-    background-color: lightgreen;
-    cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
- }
+#settings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10vw;
+  transition: all 0.35s ease-in-out;
+}
 
- #favorites {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 10vw;
- }
+#settings:hover {
+  background-color: lightgreen;
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+  transition: all 0.35s ease-in-out;
+}
 
-  #favorites:hover {
-    background-color: lightgreen;
-    cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
- }
+#favorites {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10vw;
+  transition: all 0.35s ease-in-out;
+}
+
+#favorites:hover {
+  background-color: lightgreen;
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+  transition: all 0.35s ease-in-out;
+}
