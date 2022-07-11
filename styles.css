@@ -1,96 +1,260 @@
+:root {
+  --color: white;
+  --details-color: white;
+}
+
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 #container {
-    display: grid;
-    grid-template-rows: 0.2fr 0.2fr 1fr;
-    height: 100vh;
+  display: grid;
+  grid-template-rows: 0.1fr 0.1fr 1fr;
+  height: 100vh;
 }
 
 #navBar {
-    background-color: green;
-    display: grid;
-    grid-template-columns: 2fr 0.5fr 0.5fr 0.5fr;
-    align-content: center;
-    justify-items: center;
+  background-color: green;
+  display: grid;
+  grid-template-columns: 2fr 0.5fr 0.5fr 0.5fr;
+  align-content: center;
+  justify-items: center;
 }
 
 #filters {
-    background-color: red;
+  background-color: red;
 }
 
 #beerBrowse {
-    background-color: yellow;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: center;
-    padding-bottom: 10px;
-    overflow-y: scroll;
+  background-color: yellow;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  padding-bottom: 10px;
+  overflow-y: scroll;
+  width: 100vw;
+  background-image: url(https://americantaphouse.com/wp-content/uploads/2016/03/taps-with-hand-background.jpg);
+  background-size: cover;
 }
 
 #titleSection {
-    margin-right: 500px;
+  display: flex;
+  width: 100%;
+  margin-right: auto;
 }
 
 .beerContent {
-    background-color: purple;
-    height: 300px;
-    width: 350px;
-    margin: 15px 0 0 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas: 
-            "name name ibu abv"
-            "tagLine tagLine tagLine tagLine"
-            "favorite favorite learnMore learnMore";
-    gap: 5px;
-    color: white;
-    font-size: 0.9em;
+  height: 300px;
+  width: 350px;
+  margin: 15px 0 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "name name ibu abv"
+    "tagLine tagLine tagLine tagLine"
+    "favorite favorite learnMore learnMore";
+  color: black;
+  font-size: 0.9em;
+  opacity: 0.95;
+  font-weight: bold;
+}
+
+button {
+  padding: 0;
+  border: 0;
+  font-weight: bolder;
 }
 
 .name {
-    grid-area: name;
-    background-color: blue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  grid-area: name;
+  background-color: var(--color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.ibu{
-    grid-area: ibu;
-    background-color: blue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.ibu {
+  grid-area: ibu;
+  background-color: var(--color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .abv {
-    grid-area: abv;
-    background-color: blue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  grid-area: abv;
+  background-color: var(--color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .tagLine {
-    grid-area: tagLine;
-    background-color: blue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  grid-area: tagLine;
+  background-color: var(--color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .favorite {
-    grid-area: favorite;
-    background-color: blue;
-    color: white;
+  grid-area: favorite;
+  background-color: var(--color);
+  color: red;
+  transition: all 0.35s ease-in-out;
+}
+
+.favorite:hover {
+  background-color: rgb(201, 201, 201);
+  transition: all 0.35s ease-in-out;
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
 }
 
 .learnMore {
-    grid-area: learnMore;
-    background-color: blue;
-    color: white;
+  grid-area: learnMore;
+  background-color: var(--color);
+  color: red;
+  transition: all 0.35s ease-in-out;
+}
+
+.learnMore:hover {
+  background-color: rgb(201, 201, 201);
+  transition: all 0.35s ease-in-out;
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+}
+
+#title {
+  color: white;
+  font-size: 1.75vw;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+  font-weight: bold;
+  font-family: Georgia;
+}
+
+#FIS {
+  width: 125px;
+  height: auto;
+}
+
+#browse {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  transition: all 0.35s ease-in-out;
+  font-size: 1.5rem;
+  color: var(--color);
+}
+
+#browse:hover {
+  background-color: lightgreen;
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+  transition: all 0.35s ease-in-out;
+}
+
+#settings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  transition: all 0.35s ease-in-out;
+  font-size: 1.5rem;
+  color: var(--color);
+}
+
+#settings:hover {
+  background-color: lightgreen;
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+  transition: all 0.35s ease-in-out;
+}
+
+#favorites {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  transition: all 0.35s ease-in-out;
+  font-size: 1.5rem;
+  color: var(--color);
+}
+
+#favorites:hover {
+  background-color: lightgreen;
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+  transition: all 0.35s ease-in-out;
+}
+
+#learnMore {
+  display: none;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "name name favorites image"
+    "learnMoreIbu learnMoreAbv firstbrewed image"
+    "foodpairing foodpairing foodpairing image"
+    "learnMoreDescription learnMoreDescription learnMoreDescription back";
+  width: 95%;
+  margin-top: 15px;
+}
+
+#learnMoreName {
+  grid-area: name;
+  background-color: var(--details-color);
+  opacity: 0.95;
+}
+
+#learnMoreIbu {
+  grid-area: learnMoreIbu;
+  background-color: var(--details-color);
+  opacity: 0.95;
+}
+
+#learnMoreAbv {
+  grid-area: learnMoreAbv;
+  background-color: var(--details-color);
+  opacity: 0.95;
+}
+
+#learnMoreImage {
+  grid-area: image;
+  background-color: var(--details-color);
+  opacity: 0.95;
+}
+
+#learnMoreDescription {
+  grid-area: learnMoreDescription;
+  background-color: var(--details-color);
+  opacity: 0.95;
+}
+
+#learnMoreFoodPairings {
+  grid-area: foodpairing;
+  background-color: var(--details-color);
+  opacity: 0.95;
+}
+
+#learnMoreFirstBrewed {
+  grid-area: firstbrewed;
+  background-color: var(--details-color);
+  opacity: 0.95;
+}
+
+#learnMoreFavorites {
+  grid-area: favorites;
+  background-color: var(--details-color);
+  opacity: 0.95;
+}
+
+#backButton {
+  grid-area: back;
+  color: red;
+}
+
+#backButton:hover {
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
 }
