@@ -1,11 +1,17 @@
-
+let pageNumber = 1
 
 document.addEventListener("DOMContentLoaded", () => {
     callBeer()
 })
 
-function callBeer() {
-    fetch("https://api.punkapi.com/v2/beers?page=1&per_page=27")
+function callBeer(page = 1) {
+    const beerClass = document.querySelectorAll(".beerContent")
+    if (beerClass.length > 0) {
+        beerClass.forEach(beer => {
+            beer.remove()
+        })
+    }
+    fetch(`https://api.punkapi.com/v2/beers?page=${page}&per_page=27`)
         .then(res => res.json())
         .then(beerArr => renderBeer(beerArr))
 }
@@ -44,33 +50,34 @@ function renderBeer(beerArr) {
 function loadLearnMore(e) {
     let beerIndex = e.target.attributes[0].textContent;
     fetch(`https://api.punkapi.com/v2/beers/${beerIndex}`)
-    .then(res => res.json())
-    .then(data => {
-        document.querySelector("#backButton").style.display = "block"
-        document.querySelector("#nextButton").style.display = "none"
-        document.querySelector("#previousButton").style.display = "none"
-        document.querySelector("#pageIndex").style.display = "none"
-        document.querySelector("#filters").style.display = "none"
-        document.querySelector("#container").style.gridTemplateRows = "0.1fr 0.1fr 1fr"
-        scrollPosition = document.getElementById("beerBrowse").scrollTop;
-        let beerBrowse = document.querySelector("#beerBrowse")
-        beerBrowse.style.gridTemplateColumns = "1fr"
-        let learnMoreButton = document.querySelector("#learnMore")
-        learnMoreButton.style.display = "flex";
-        beerContent = document.querySelectorAll(".beerContent")
-        beerContent.forEach(beer => {
-            beer.style.display = "none"
+        .then(res => res.json())
+        .then(data => {
+            document.querySelector("#backButton").style.display = "block"
+            document.querySelector("#nextButton").style.display = "none"
+            document.querySelector("#previousButton").style.display = "none"
+            document.querySelector("#pageIndex").style.display = "none"
+            document.querySelector("#filters").style.display = "none"
+            document.querySelector("#container").style.gridTemplateRows = "0.1fr 0.1fr 1fr"
+            scrollPosition = document.getElementById("beerBrowse").scrollTop;
+            let beerBrowse = document.querySelector("#beerBrowse")
+            beerBrowse.style.gridTemplateColumns = "1fr"
+            beerBrowse.style.overflowY = "hidden"
+            let learnMoreButton = document.querySelector("#learnMore")
+            learnMoreButton.style.display = "flex";
+            beerContent = document.querySelectorAll(".beerContent")
+            beerContent.forEach(beer => {
+                beer.style.display = "none"
+            })
+            document.querySelector("#image").src = data[0].image_url
+            document.querySelector("#learnMoreName").innerText = `Name: ${data[0].name}`
+            document.querySelector("#learnMoreIbu").innerText = `IBU: ${data[0].ibu}`
+            document.querySelector("#learnMoreAbv").innerText = `ABV: ${data[0].abv}`
+            document.querySelector("#learnMoreDescription").innerText = data[0].description
+            document.querySelector("#learnMoreFoodPairings").innerText = `Great Food Pairings: ${data[0].food_pairing}`
+            document.querySelector("#learnMoreFirstBrewed").innerText = `First Brewed: ${data[0].first_brewed}`
         })
-        document.querySelector("#image").src = data[0].image_url
-        document.querySelector("#learnMoreName").innerText = `Name: ${data[0].name}`
-        document.querySelector("#learnMoreIbu").innerText = `IBU: ${data[0].ibu}`
-        document.querySelector("#learnMoreAbv").innerText = `ABV: ${data[0].abv}`
-        document.querySelector("#learnMoreDescription").innerText = data[0].description
-        document.querySelector("#learnMoreFoodPairings").innerText = `Great Food Pairings: ${data[0].food_pairing}`
-        document.querySelector("#learnMoreFirstBrewed").innerText = `First Brewed: ${data[0].first_brewed}`
-    })
-    
-    
+
+
 }
 
 function learnMoreBackButton(e) {
@@ -82,6 +89,7 @@ function learnMoreBackButton(e) {
     document.querySelector("#container").style.gridTemplateRows = "0.1fr 0.1fr 0.1fr 1fr"
     let beerBrowse = document.querySelector("#beerBrowse")
     beerBrowse.style.gridTemplateColumns = "1fr 1fr 1fr"
+    beerBrowse.style.overflowY = "scroll"
     let learnMoreButton = document.querySelector("#learnMore")
     learnMoreButton.style.display = "none";
     beerContent = document.querySelectorAll(".beerContent")
@@ -93,5 +101,17 @@ function learnMoreBackButton(e) {
 
 function setToFavorites(e) {
     console.log("hello")
+}
+
+function loadNextPage(e) {
+    const pageIndex = document.querySelector("#pageIndex")
+    if (pageNumber === 13) {
+        return
+    } else {
+        pageNumber++
+        pageIndex.innerText = `page ${pageNumber}/13`
+    }
+    callBeer(pageNumber)
+
 }
 
