@@ -33,17 +33,56 @@ function renderBeer(beerArr) {
         let tagLine = document.createElement("div")
         tagLine.classList.add("tagLine")
         tagLine.innerHTML = `Tagline:<br><br>'${beer.tagline}'`
-        let favorite = document.createElement("button")
-        favorite.setAttribute("onclick", onclick = "setToFavorites(event)")
-        favorite.classList.add("favorite")
-        favorite.innerHTML = "Add to Favorites 	♡"
-        let learnMore = document.createElement("button")
-        learnMore.setAttribute("beerIndex", beer.id)
-        learnMore.setAttribute("onclick", onclick = "loadLearnMore(event)")
-        learnMore.classList.add("learnMore")
-        learnMore.innerHTML = "Learn More"
 
-        beerContent.append(name, ibu, abv, tagLine, favorite, learnMore)
+        fetch("http://localhost:3000/favorites")
+        .then(res => res.json())
+        .then(datas => {
+            if (datas[beer.id - 1] == undefined) {
+                let favorite = document.createElement("button")
+                favorite.setAttribute("onclick", onclick = "setToFavorites(event)")
+                favorite.classList.add("favorite")
+                favorite.innerHTML = "Add to Favorites 	♡"
+                favorite.setAttribute("beerIndex", beer.id)
+
+                let learnMore = document.createElement("button")
+                learnMore.setAttribute("beerIndex", beer.id)
+                learnMore.setAttribute("onclick", onclick = "loadLearnMore(event)")
+                learnMore.classList.add("learnMore")
+                learnMore.innerHTML = "Learn More"
+
+                beerContent.append(name, ibu, abv, tagLine, favorite, learnMore)
+            } else {
+                if (datas[beer.id - 1].heart === true) {
+                    let favorite = document.createElement("button")
+                    favorite.setAttribute("onclick", onclick = "setToFavorites(event)")
+                    favorite.classList.add("favorite")
+                    favorite.innerHTML = "Add to Favorites 	♥"
+                    favorite.setAttribute("beerIndex", beer.id)
+                    
+                    let learnMore = document.createElement("button")
+                    learnMore.setAttribute("beerIndex", beer.id)
+                    learnMore.setAttribute("onclick", onclick = "loadLearnMore(event)")
+                    learnMore.classList.add("learnMore")
+                    learnMore.innerHTML = "Learn More"
+
+                    beerContent.append(name, ibu, abv, tagLine, favorite, learnMore)
+                } else {
+                    let favorite = document.createElement("button")
+                    favorite.setAttribute("onclick", onclick = "setToFavorites(event)")
+                    favorite.classList.add("favorite")
+                    favorite.innerHTML = "Add to Favorites 	♡"
+                    favorite.setAttribute("beerIndex", beer.id)
+
+                    let learnMore = document.createElement("button")
+                    learnMore.setAttribute("beerIndex", beer.id)
+                    learnMore.setAttribute("onclick", onclick = "loadLearnMore(event)")
+                    learnMore.classList.add("learnMore")
+                    learnMore.innerHTML = "Learn More"
+
+                    beerContent.append(name, ibu, abv, tagLine, favorite, learnMore) 
+                }
+            }
+        })  
     });
 }
 
@@ -100,7 +139,21 @@ function learnMoreBackButton(e) {
 }
 
 function setToFavorites(e) {
-    console.log("hello")
+    const beerIndex = e.target.attributes[2].textContent
+
+    fetch("http://localhost:3000/favorites", {
+        method: 'POST',
+        body: JSON.stringify({
+            id: Number(beerIndex),
+            heart: true,
+        }),
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+    }).then(() => {
+        e.target.textContent = "Add to Favorites ♥"
+    })
 }
 
 function loadNextPage(e) {

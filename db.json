@@ -1,0 +1,16 @@
+{
+  "favorites": [
+    {
+      "id": 1,
+      "heart": false
+    },
+    {
+      "id": 2,
+      "heart": true
+    },
+    {
+      "id": 3,
+      "heart": true
+    }
+  ]
+}
