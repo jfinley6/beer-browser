@@ -6,16 +6,18 @@
 body {
   margin: 0;
   padding: 0;
+  background-image: url(https://americantaphouse.com/wp-content/uploads/2016/03/taps-with-hand-background.jpg);
+  background-size: cover;
 }
 
 #container {
   display: grid;
-  grid-template-rows: 0.1fr 0.1fr 1fr;
+  grid-template-rows: 0.1fr 0.1fr 0.1fr 1fr;
   height: 100vh;
 }
 
 #navBar {
-  background-color: green;
+  background-color: rgb(26, 179, 26);
   display: grid;
   grid-template-columns: 2fr 0.5fr 0.5fr 0.5fr;
   align-content: center;
@@ -27,21 +29,28 @@ body {
 }
 
 #beerBrowse {
-  background-color: yellow;
+
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   padding-bottom: 10px;
   overflow-y: scroll;
   width: 100vw;
-  background-image: url(https://americantaphouse.com/wp-content/uploads/2016/03/taps-with-hand-background.jpg);
-  background-size: cover;
+
 }
 
 #titleSection {
   display: flex;
   width: 100%;
   margin-right: auto;
+}
+
+#pageButtons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  opacity: 0.95;
+  background-color: white;
 }
 
 .beerContent {
@@ -139,6 +148,7 @@ button {
 #FIS {
   width: 125px;
   height: auto;
+  filter: brightness(70%)
 }
 
 #browse {
@@ -191,14 +201,8 @@ button {
 
 #learnMore {
   display: none;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-areas:
-    "name name favorites image"
-    "learnMoreIbu learnMoreAbv firstbrewed image"
-    "foodpairing foodpairing foodpairing image"
-    "learnMoreDescription learnMoreDescription learnMoreDescription back";
-  width: 95%;
+  flex-direction: column;
+  width: 94%;
   margin-top: 15px;
 }
 
@@ -206,55 +210,97 @@ button {
   grid-area: name;
   background-color: var(--details-color);
   opacity: 0.95;
+  display: flex;
+  justify-content: center;
 }
 
 #learnMoreIbu {
   grid-area: learnMoreIbu;
   background-color: var(--details-color);
   opacity: 0.95;
+  display: flex;
+  justify-content: center;
 }
 
 #learnMoreAbv {
   grid-area: learnMoreAbv;
   background-color: var(--details-color);
   opacity: 0.95;
+  display: flex;
+  justify-content: center;
 }
 
 #learnMoreImage {
   grid-area: image;
   background-color: var(--details-color);
   opacity: 0.95;
+  display: flex;
+  justify-content: center;
 }
 
 #learnMoreDescription {
   grid-area: learnMoreDescription;
   background-color: var(--details-color);
   opacity: 0.95;
+  justify-content: center;
+  display: flex;
 }
 
 #learnMoreFoodPairings {
   grid-area: foodpairing;
   background-color: var(--details-color);
   opacity: 0.95;
+  display: flex;
+  justify-content: center;
 }
 
 #learnMoreFirstBrewed {
   grid-area: firstbrewed;
   background-color: var(--details-color);
   opacity: 0.95;
+  display: flex;
+  justify-content: center;
 }
 
 #learnMoreFavorites {
   grid-area: favorites;
   background-color: var(--details-color);
   opacity: 0.95;
+  display: flex;
+  justify-content: center;
 }
 
 #backButton {
-  grid-area: back;
+  display: none;
   color: red;
 }
 
+#previousButton {
+  background-color: pink;
+  width: 80px
+}
+
+#nextButton {
+  background-color: pink;
+  width: 80px
+  
+}
+
+#pageIndex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: pink;
+  width: 80px;
+  
+} 
+
 #backButton:hover {
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+}
+
+#image {
+    height: 100px;
+    width: auto;
+    margin-top: 10px;
 }
