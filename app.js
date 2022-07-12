@@ -41,6 +41,8 @@ function renderBeer(beerArr) {
 }
 
 function loadLearnMore(e) {
+    document.querySelector("#previousButton").style.display = "none"
+    document.querySelector("#pageIndex").style.display = "none"
     document.querySelector("#filters").style.display = "none"
     document.querySelector("#container").style.gridTemplateRows = "0.1fr 0.1fr 1fr"
     scrollPosition = document.getElementById("beerBrowse").scrollTop;
@@ -55,6 +57,8 @@ function loadLearnMore(e) {
 }
 
 function learnMoreBackButton(e) {
+    document.querySelector("#previousButton").style.display = ""
+    document.querySelector("#pageIndex").style.display = ""
     document.querySelector("#filters").style.display = ""
     document.querySelector("#container").style.gridTemplateRows = "0.1fr 0.1fr 0.1fr 1fr"
     let beerBrowse = document.querySelector("#beerBrowse")
