@@ -10,12 +10,12 @@ body {
 
 #container {
   display: grid;
-  grid-template-rows: 0.1fr 0.1fr 1fr;
+  grid-template-rows: 0.1fr 0.1fr 0.1fr 1fr;
   height: 100vh;
 }
 
 #navBar {
-  background-color: green;
+  background-color: rgb(26, 179, 26);
   display: grid;
   grid-template-columns: 2fr 0.5fr 0.5fr 0.5fr;
   align-content: center;
@@ -139,6 +139,7 @@ button {
 #FIS {
   width: 125px;
   height: auto;
+  filter: brightness(70%)
 }
 
 #browse {
@@ -198,7 +199,7 @@ button {
     "learnMoreIbu learnMoreAbv firstbrewed image"
     "foodpairing foodpairing foodpairing image"
     "learnMoreDescription learnMoreDescription learnMoreDescription back";
-  width: 95%;
+  width: 94%;
   margin-top: 15px;
 }
 
