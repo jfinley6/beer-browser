@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     callBeer()
 })
 
-function callBeer(page = 1) {
+function callBeer(page = 2) {
     const beerClass = document.querySelectorAll(".beerContent")
     if (beerClass.length > 0) {
         beerClass.forEach(beer => {
@@ -51,6 +51,7 @@ function renderBeer(beerArr) {
                 learnMore.innerHTML = "Learn More"
 
                 beerContent.append(name, ibu, abv, tagLine, favorite, learnMore)
+
             } else {
                 if (datas[beer.id - 1].heart === true) {
                     let favorite = document.createElement("button")
