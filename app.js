@@ -32,6 +32,7 @@ function renderBeer(beerArr) {
         favorite.classList.add("favorite")
         favorite.innerHTML = "Add to Favorites 	♡"
         let learnMore = document.createElement("button")
+        learnMore.setAttribute("beerIndex", beer.id)
         learnMore.setAttribute("onclick", onclick = "loadLearnMore(event)")
         learnMore.classList.add("learnMore")
         learnMore.innerHTML = "Learn More"
@@ -41,21 +42,35 @@ function renderBeer(beerArr) {
 }
 
 function loadLearnMore(e) {
-    document.querySelector("#backButton").style.display = "block"
-    document.querySelector("#nextButton").style.display = "none"
-    document.querySelector("#previousButton").style.display = "none"
-    document.querySelector("#pageIndex").style.display = "none"
-    document.querySelector("#filters").style.display = "none"
-    document.querySelector("#container").style.gridTemplateRows = "0.1fr 0.1fr 1fr"
-    scrollPosition = document.getElementById("beerBrowse").scrollTop;
-    let beerBrowse = document.querySelector("#beerBrowse")
-    beerBrowse.style.gridTemplateColumns = "1fr"
-    let learnMoreButton = document.querySelector("#learnMore")
-    learnMoreButton.style.display = "flex";
-    beerContent = document.querySelectorAll(".beerContent")
-    beerContent.forEach(beer => {
-        beer.style.display = "none"
+    let beerIndex = e.target.attributes[0].textContent;
+    fetch(`https://api.punkapi.com/v2/beers/${beerIndex}`)
+    .then(res => res.json())
+    .then(data => {
+        document.querySelector("#backButton").style.display = "block"
+        document.querySelector("#nextButton").style.display = "none"
+        document.querySelector("#previousButton").style.display = "none"
+        document.querySelector("#pageIndex").style.display = "none"
+        document.querySelector("#filters").style.display = "none"
+        document.querySelector("#container").style.gridTemplateRows = "0.1fr 0.1fr 1fr"
+        scrollPosition = document.getElementById("beerBrowse").scrollTop;
+        let beerBrowse = document.querySelector("#beerBrowse")
+        beerBrowse.style.gridTemplateColumns = "1fr"
+        let learnMoreButton = document.querySelector("#learnMore")
+        learnMoreButton.style.display = "flex";
+        beerContent = document.querySelectorAll(".beerContent")
+        beerContent.forEach(beer => {
+            beer.style.display = "none"
+        })
+        document.querySelector("#image").src = data[0].image_url
+        document.querySelector("#learnMoreName").innerText = data[0].name
+        document.querySelector("#learnMoreIbu").innerText = data[0].ibu
+        document.querySelector("#learnMoreAbv").innerText = data[0].abv
+        document.querySelector("#learnMoreDescription").innerText = data[0].description
+        document.querySelector("#learnMoreFoodPairings").innerText = data[0].food_pairing
+        document.querySelector("#learnMoreFirstBrewed").innerText = data[0].first_brewed
     })
+    
+    
 }
 
 function learnMoreBackButton(e) {
