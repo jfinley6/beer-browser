@@ -141,7 +141,7 @@ function learnMoreBackButton(e) {
 
 function setToFavorites(e) {
     const beerIndex = e.target.attributes[2].textContent
-    if (e.target.textContent === "Add to Favorites ♡"){
+    if (e.target.textContent === "Add to Favorites ♡") {
         fetch(`http://localhost:3000/favorites/${beerIndex}`, {
             method: 'PATCH',
             body: JSON.stringify({
@@ -197,3 +197,40 @@ function changePageIndex() {
     pageNumber = 1
     callBeer()
 }
+
+function getRandomBeer(e) {
+
+    fetch('https://api.punkapi.com/v2/beers/random')
+        .then(res => res.json())
+        .then(randomBeer => {
+            document.querySelector("#backButton").style.display = "block"
+            document.querySelector("#nextButton").style.display = "none"
+            document.querySelector("#previousButton").style.display = "none"
+            document.querySelector("#pageIndex").style.display = "none"
+            document.querySelector("#filters").style.display = "none"
+            document.querySelector("#container").style.gridTemplateRows = "0.1fr 0.1fr 1fr"
+            scrollPosition = document.getElementById("beerBrowse").scrollTop;
+            let beerBrowse = document.querySelector("#beerBrowse")
+            beerBrowse.style.gridTemplateColumns = "1fr"
+            beerBrowse.style.overflowY = "hidden"
+            let learnMoreButton = document.querySelector("#learnMore")
+            learnMoreButton.style.display = "flex";
+            beerContent = document.querySelectorAll(".beerContent")
+            beerContent.forEach(beer => {
+                beer.style.display = "none"
+            })
+            document.querySelector("#image").src = randomBeer[0].image_url
+            document.querySelector("#learnMoreName").innerText = `Name: ${randomBeer[0].name}`
+            document.querySelector("#learnMoreIbu").innerText = `IBU: ${randomBeer[0].ibu}`
+            document.querySelector("#learnMoreAbv").innerText = `ABV: ${randomBeer[0].abv}`
+            document.querySelector("#learnMoreDescription").innerText = randomBeer[0].description
+            document.querySelector("#learnMoreFoodPairings").innerText = `Great Food Pairings: ${randomBeer[0].food_pairing}`
+            document.querySelector("#learnMoreFirstBrewed").innerText = `First Brewed: ${randomBeer[0].first_brewed}`
+
+        })
+}
+
+
+// get Favorites to work - show a list of our favorite beer after we have selected "add to favorites button"
+//filter - get random beer
+//settings button - pull up setting tab - be able to persist our visual changes
