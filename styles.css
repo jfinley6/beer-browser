@@ -82,6 +82,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 15px 0 0 0;
 }
 
 .ibu {
@@ -98,6 +99,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 0 15px 0 0;
 }
 
 .tagLine {
@@ -113,6 +115,7 @@ button {
   background-color: var(--color);
   color: red;
   transition: all 0.35s ease-in-out;
+  border-radius: 0 0 0 15px;
 }
 
 .favorite:hover {
@@ -126,6 +129,7 @@ button {
   background-color: var(--color);
   color: red;
   transition: all 0.35s ease-in-out;
+  border-radius: 0 0 15px 0;
 }
 
 .learnMore:hover {
@@ -165,6 +169,7 @@ button {
   background-color: lightgreen;
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
   transition: all 0.35s ease-in-out;
+  border-radius: 15px;
 }
 
 #settings {
@@ -181,6 +186,7 @@ button {
   background-color: lightgreen;
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
   transition: all 0.35s ease-in-out;
+  border-radius: 15px;
 }
 
 #favorites {
@@ -197,6 +203,7 @@ button {
   background-color: lightgreen;
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
   transition: all 0.35s ease-in-out;
+  border-radius: 15px;
 }
 
 #learnMore {
@@ -277,13 +284,23 @@ button {
 
 #previousButton {
   background-color: pink;
-  width: 80px
+  width: 80px;
+}
+
+#previousButton:hover {
+    cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+    border-radius: 15px;
 }
 
 #nextButton {
   background-color: pink;
-  width: 80px
-  
+  width: 80px;
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+}
+
+#nextButton:hover {
+    cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+    border-radius: 15px;
 }
 
 #pageIndex {

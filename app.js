@@ -41,7 +41,7 @@ function renderBeer(beerArr) {
                     let favorite = document.createElement("button")
                     favorite.setAttribute("onclick", onclick = "setToFavorites(event)")
                     favorite.classList.add("favorite")
-                    favorite.innerHTML = "Add to Favorites 	♡"
+                    favorite.innerHTML = "Add to Favorites ♡"
                     favorite.setAttribute("beerIndex", beer.id)
 
                     let learnMore = document.createElement("button")
@@ -57,7 +57,7 @@ function renderBeer(beerArr) {
                         let favorite = document.createElement("button")
                         favorite.setAttribute("onclick", onclick = "setToFavorites(event)")
                         favorite.classList.add("favorite")
-                        favorite.innerHTML = "Add to Favorites 	♥"
+                        favorite.innerHTML = "Add to Favorites ♥"
                         favorite.setAttribute("beerIndex", beer.id)
 
                         let learnMore = document.createElement("button")
@@ -71,7 +71,7 @@ function renderBeer(beerArr) {
                         let favorite = document.createElement("button")
                         favorite.setAttribute("onclick", onclick = "setToFavorites(event)")
                         favorite.classList.add("favorite")
-                        favorite.innerHTML = "Add to Favorites 	♡"
+                        favorite.innerHTML = "Add to Favorites ♡"
                         favorite.setAttribute("beerIndex", beer.id)
 
                         let learnMore = document.createElement("button")
