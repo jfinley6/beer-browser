@@ -44,6 +44,13 @@ body {
   margin-right: auto;
 }
 
+#pageButtons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  
+}
+
 .beerContent {
   height: 300px;
   width: 350px;
@@ -252,9 +259,30 @@ button {
 }
 
 #backButton {
+  display: none;
   grid-area: back;
   color: red;
 }
+
+#previousButton {
+  background-color: pink;
+  width: 80px
+}
+
+#nextButton {
+  background-color: pink;
+  width: 80px
+  
+}
+
+#pageIndex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: pink;
+  width: 80px;
+  
+} 
 
 #backButton:hover {
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
