@@ -199,7 +199,7 @@ button {
   transition: all 0.35s ease-in-out;
 }
 
-div#learnMore {
+#learnMore {
   display: none;
   flex-direction: column;
   width: 94%;
@@ -242,6 +242,7 @@ div#learnMore {
   grid-area: learnMoreDescription;
   background-color: var(--details-color);
   opacity: 0.95;
+  justify-content: center;
 }
 
 #learnMoreFoodPairings {

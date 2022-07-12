@@ -62,12 +62,12 @@ function loadLearnMore(e) {
             beer.style.display = "none"
         })
         document.querySelector("#image").src = data[0].image_url
-        document.querySelector("#learnMoreName").innerText = data[0].name
-        document.querySelector("#learnMoreIbu").innerText = data[0].ibu
-        document.querySelector("#learnMoreAbv").innerText = data[0].abv
+        document.querySelector("#learnMoreName").innerText = `Name: ${data[0].name}`
+        document.querySelector("#learnMoreIbu").innerText = `IBU: ${data[0].ibu}`
+        document.querySelector("#learnMoreAbv").innerText = `ABV: ${data[0].abv}`
         document.querySelector("#learnMoreDescription").innerText = data[0].description
-        document.querySelector("#learnMoreFoodPairings").innerText = data[0].food_pairing
-        document.querySelector("#learnMoreFirstBrewed").innerText = data[0].first_brewed
+        document.querySelector("#learnMoreFoodPairings").innerText = `Great Food Pairings: ${data[0].food_pairing}`
+        document.querySelector("#learnMoreFirstBrewed").innerText = `First Brewed: ${data[0].first_brewed}`
     })
     
     
