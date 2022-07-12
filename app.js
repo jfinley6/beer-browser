@@ -1,7 +1,4 @@
-window.addEventListener("scroll", (event) => {
-    let scroll = this.scrollY;
-    console.log("hello")
-});
+
 
 document.addEventListener("DOMContentLoaded", () => {
     callBeer()
@@ -44,7 +41,7 @@ function renderBeer(beerArr) {
 }
 
 function loadLearnMore(e) {
-    document.querySelector("#pageButtons").style.display = "none"
+    document.querySelector("#filters").style.display = "none"
     document.querySelector("#container").style.gridTemplateRows = "0.1fr 0.1fr 1fr"
     scrollPosition = document.getElementById("beerBrowse").scrollTop;
     let beerBrowse = document.querySelector("#beerBrowse")
@@ -58,7 +55,7 @@ function loadLearnMore(e) {
 }
 
 function learnMoreBackButton(e) {
-    document.querySelector("#pageButtons").style.display = ""
+    document.querySelector("#filters").style.display = ""
     document.querySelector("#container").style.gridTemplateRows = "0.1fr 0.1fr 0.1fr 1fr"
     let beerBrowse = document.querySelector("#beerBrowse")
     beerBrowse.style.gridTemplateColumns = "1fr 1fr 1fr"
@@ -74,3 +71,4 @@ function learnMoreBackButton(e) {
 function setToFavorites(e) {
     console.log("hello")
 }
+
