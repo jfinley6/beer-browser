@@ -260,7 +260,6 @@ button {
 
 #backButton {
   display: none;
-  grid-area: back;
   color: red;
 }
 

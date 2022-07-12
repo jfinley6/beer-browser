@@ -41,6 +41,7 @@ function renderBeer(beerArr) {
 }
 
 function loadLearnMore(e) {
+    document.querySelector("#backButton").style.display = "block"
     document.querySelector("#nextButton").style.display = "none"
     document.querySelector("#previousButton").style.display = "none"
     document.querySelector("#pageIndex").style.display = "none"
@@ -58,6 +59,7 @@ function loadLearnMore(e) {
 }
 
 function learnMoreBackButton(e) {
+    document.querySelector("#backButton").style.display = "none"
     document.querySelector("#nextButton").style.display = ""
     document.querySelector("#previousButton").style.display = ""
     document.querySelector("#pageIndex").style.display = ""
