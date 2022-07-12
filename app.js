@@ -109,9 +109,19 @@ function loadNextPage(e) {
         return
     } else {
         pageNumber++
-        pageIndex.innerText = `page ${pageNumber}/13`
+        pageIndex.innerText = `Page ${pageNumber}/13`
     }
     callBeer(pageNumber)
+}
 
+function loadPreviousPage (e) {
+    const pageIndex = document.querySelector("#pageIndex")
+    if (pageNumber === 1) {
+        return
+    } else {
+        pageNumber--
+        pageIndex.innerText = `Page ${pageNumber}/13`
+    }
+    callBeer(pageNumber)
 }
 
