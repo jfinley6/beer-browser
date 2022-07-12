@@ -192,3 +192,8 @@ function loadPreviousPage(e) {
     callBeer(pageNumber)
 }
 
+function changePageIndex() {
+    document.querySelector("#pageIndex").textContent = "Page 1/13"
+    pageNumber = 1
+    callBeer()
+}
