@@ -197,15 +197,9 @@ button {
   transition: all 0.35s ease-in-out;
 }
 
-#learnMore {
+div#learnMore {
   display: none;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-areas:
-    "name name favorites image"
-    "learnMoreIbu learnMoreAbv firstbrewed image"
-    "foodpairing foodpairing foodpairing image"
-    "learnMoreDescription learnMoreDescription learnMoreDescription back";
+  flex-direction: column;
   width: 94%;
   margin-top: 15px;
 }
@@ -214,24 +208,32 @@ button {
   grid-area: name;
   background-color: var(--details-color);
   opacity: 0.95;
+  display: flex;
+  justify-content: center;
 }
 
 #learnMoreIbu {
   grid-area: learnMoreIbu;
   background-color: var(--details-color);
   opacity: 0.95;
+  display: flex;
+  justify-content: center;
 }
 
 #learnMoreAbv {
   grid-area: learnMoreAbv;
   background-color: var(--details-color);
   opacity: 0.95;
+  display: flex;
+  justify-content: center;
 }
 
 #learnMoreImage {
   grid-area: image;
   background-color: var(--details-color);
   opacity: 0.95;
+  display: flex;
+  justify-content: center;
 }
 
 #learnMoreDescription {
@@ -244,18 +246,24 @@ button {
   grid-area: foodpairing;
   background-color: var(--details-color);
   opacity: 0.95;
+  display: flex;
+  justify-content: center;
 }
 
 #learnMoreFirstBrewed {
   grid-area: firstbrewed;
   background-color: var(--details-color);
   opacity: 0.95;
+  display: flex;
+  justify-content: center;
 }
 
 #learnMoreFavorites {
   grid-area: favorites;
   background-color: var(--details-color);
   opacity: 0.95;
+  display: flex;
+  justify-content: center;
 }
 
 #backButton {

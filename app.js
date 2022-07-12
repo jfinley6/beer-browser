@@ -30,7 +30,7 @@ function renderBeer(beerArr) {
         let favorite = document.createElement("button")
         favorite.setAttribute("onclick", onclick = "setToFavorites(event)")
         favorite.classList.add("favorite")
-        favorite.innerHTML = "Add to Favorites ♥"
+        favorite.innerHTML = "Add to Favorites 	♡"
         let learnMore = document.createElement("button")
         learnMore.setAttribute("onclick", onclick = "loadLearnMore(event)")
         learnMore.classList.add("learnMore")
@@ -51,7 +51,7 @@ function loadLearnMore(e) {
     let beerBrowse = document.querySelector("#beerBrowse")
     beerBrowse.style.gridTemplateColumns = "1fr"
     let learnMoreButton = document.querySelector("#learnMore")
-    learnMoreButton.style.display = "inline-grid";
+    learnMoreButton.style.display = "flex";
     beerContent = document.querySelectorAll(".beerContent")
     beerContent.forEach(beer => {
         beer.style.display = "none"
