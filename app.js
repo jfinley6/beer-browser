@@ -108,30 +108,13 @@ function renderBeer(beerArr) {
         tagLine.classList.add("tagLine")
         tagLine.innerHTML = `Tagline:<br><br>'${beer.tagline}'`
 
-        fetch("http://localhost:3000/favorites")
-            .then(res => res.json())
-            .then(datas => {
-                if (datas[beer.id - 1].heart === true) {
+        let learnMore = document.createElement("button")
+        learnMore.setAttribute("beerIndex", beer.id)
+        learnMore.setAttribute("onclick", onclick = "loadLearnMore(event)")
+        learnMore.classList.add("learnMore")
+        learnMore.innerHTML = "Learn More"
 
-                    let learnMore = document.createElement("button")
-                    learnMore.setAttribute("beerIndex", beer.id)
-                    learnMore.setAttribute("onclick", onclick = "loadLearnMore(event)")
-                    learnMore.classList.add("learnMore")
-                    learnMore.innerHTML = "Learn More"
-
-                    beerContent.append(name, ibu, abv, tagLine, learnMore)
-                } else {
-
-                    let learnMore = document.createElement("button")
-                    learnMore.setAttribute("beerIndex", beer.id)
-                    learnMore.setAttribute("onclick", onclick = "loadLearnMore(event)")
-                    learnMore.classList.add("learnMore")
-                    learnMore.innerHTML = "Learn More"
-
-                    beerContent.append(name, ibu, abv, tagLine, learnMore)
-                }
-            }
-            )
+        beerContent.append(name, ibu, abv, tagLine, learnMore)
     });
 }
 
@@ -165,6 +148,17 @@ function loadLearnMore(e) {
             document.querySelector("#learnMoreFoodPairings").innerText = `Great Food Pairings: ${data[0].food_pairing}`
             document.querySelector("#learnMoreFirstBrewed").innerText = `First Brewed: ${data[0].first_brewed}`
             document.querySelector("#addToFavorites").setAttribute("index",  data[0].id)
+
+            fetch(`http://localhost:3000/favorites/${beerIndex}`)
+                .then(res => res.json())
+                .then(favoriteData => {
+                        if (favoriteData.heart === true) {
+                            document.querySelector("#favoriteButton").textContent = "Add to Favorites ♥" 
+                        } else {
+                            document.querySelector("#favoriteButton").textContent = "Add to Favorites ♡" 
+                        }
+                })
+            
         })
 
 
@@ -191,7 +185,6 @@ function learnMoreBackButton(e) {
 
 function setToLearnMoreFavorites(e) {
     const beerIndex = e.target.parentElement.attributes[1].textContent;
-    console.log(beerIndex);
     if (e.target.textContent === "Add to Favorites ♡") {
         fetch(`http://localhost:3000/favorites/${beerIndex}`, {
             method: 'PATCH',
@@ -289,9 +282,10 @@ function getRandomBeer() {
             document.querySelector("#backButton").style.display = "block"
             document.querySelector("#nextButton").style.display = "none"
             document.querySelector("#previousButton").style.display = "none"
+            document.querySelector("#pageButtons").style.display = "none"
             document.querySelector("#pageIndex").style.display = "none"
             document.querySelector("#filters").style.display = "none"
-            document.querySelector("#container").style.gridTemplateRows = "0.1fr 0.1fr 1fr"
+            document.querySelector("#container").style.gridTemplateRows = "0.1fr 1fr"
             scrollPosition = document.getElementById("beerBrowse").scrollTop;
             let beerBrowse = document.querySelector("#beerBrowse")
             beerBrowse.style.gridTemplateColumns = "1fr"
