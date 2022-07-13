@@ -1,7 +1,8 @@
 :root {
   --color: white;
   --details-color: white;
-  --light: white
+  --light: white;
+  --opacity: 0.9;
 }
 
 body {
@@ -148,15 +149,14 @@ button {
   white-space: nowrap;
   display: flex;
   align-items: center;
-  margin-left: 25px;
+  margin-left: 10px;
   font-weight: bold;
   font-family: Georgia;
 }
 
 #FIS {
-  width: 125px;
+  width: 80px;
   height: auto;
-  filter: brightness(70%);
 }
 
 #browse {
