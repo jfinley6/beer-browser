@@ -1,7 +1,13 @@
 :root {
   --color: white;
   --details-color: white;
-  --light: white;
+  --content-background: white;
+  --content-text: black;
+
+  --button: red;
+  --theme-background: rgb(26, 179, 26);
+  --learn-more-hover: rgb(201, 201, 201);
+  --title-text: white;
   --opacity: 0.9;
 }
 
@@ -19,7 +25,7 @@ body {
 }
 
 #navBar {
-  background-color: rgb(26, 179, 26);
+  background-color: var(--theme-background);
   display: grid;
   grid-template-columns: 2fr 0.5fr 0.5fr 0.5fr;
   align-content: center;
@@ -28,7 +34,7 @@ body {
 }
 
 #filters {
-  background-color: var(--light);
+  background-color: var(--content-background);
   opacity: 0.95;
   display: flex;
   justify-content: space-evenly;
@@ -55,7 +61,7 @@ body {
   justify-content: space-evenly;
   align-items: center;
   opacity: 0.95;
-  background-color: rgb(26, 179, 26);
+  background-color: var(--theme-background);
 }
 
 .beerContent {
@@ -69,7 +75,7 @@ body {
     "name name ibu abv"
     "tagLine tagLine tagLine tagLine"
     "learnMore learnMore learnMore learnMore";
-  color: black;
+  color: var(--content-text);
   font-size: 0.9em;
   opacity: 0.95;
   font-weight: bold;
@@ -83,7 +89,7 @@ button {
 
 .name {
   grid-area: name;
-  background-color: var(--light);
+  background-color: var(--content-background);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -92,7 +98,7 @@ button {
 
 .ibu {
   grid-area: ibu;
-  background-color: var(--light);
+  background-color: var(--content-background);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,7 +106,7 @@ button {
 
 .abv {
   grid-area: abv;
-  background-color: var(--light);
+  background-color: var(--content-background);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -109,7 +115,7 @@ button {
 
 .tagLine {
   grid-area: tagLine;
-  background-color: var(--light);
+  background-color: var(--content-background);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -117,8 +123,8 @@ button {
 
 .favorite {
   grid-area: favorite;
-  background-color: var(--light);
-  color: red;
+  background-color: var(--content-background);
+  color: var(--button);
   transition: all 0.35s ease-in-out;
   border-radius: 0 0 0 15px;
 }
@@ -131,20 +137,20 @@ button {
 
 .learnMore {
   grid-area: learnMore;
-  background-color: var(--light);
-  color: red;
+  background-color: var(--content-background);
+  color: var(--button);
   transition: all 0.35s ease-in-out;
   border-radius: 0 0 15px 15px;
 }
 
 .learnMore:hover {
-  background-color: rgb(201, 201, 201);
+  background-color: var(--learn-more-hover);
   transition: all 0.35s ease-in-out;
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
 }
 
 #title {
-  color: white;
+  color: var(--title-text);
   font-size: 1.75vw;
   white-space: nowrap;
   display: flex;
@@ -166,7 +172,7 @@ button {
   width: 100%;
   transition: all 0.35s ease-in-out;
   font-size: 1.5rem;
-  color: var(--color);
+  color: var(--title-text);
 }
 
 #browse:hover {
@@ -183,7 +189,7 @@ button {
   width: 100%;
   transition: all 0.35s ease-in-out;
   font-size: 1.5rem;
-  color: var(--color);
+  color: var(--title-text);
 }
 
 #settings:hover {
@@ -200,7 +206,7 @@ button {
   width: 100%;
   transition: all 0.35s ease-in-out;
   font-size: 1.5rem;
-  color: var(--color);
+  color: var(--title-text);
 }
 
 #favorites:hover {
@@ -219,7 +225,8 @@ button {
 
 #learnMoreName {
   grid-area: name;
-  background-color: var(--details-color);
+  background-color: var(--content-background);
+  color: var(--content-text);
   opacity: 0.95;
   display: flex;
   justify-content: center;
@@ -227,7 +234,8 @@ button {
 
 #learnMoreIbu {
   grid-area: learnMoreIbu;
-  background-color: var(--details-color);
+  background-color: var(--content-background);
+  color: var(--content-text);
   opacity: 0.95;
   display: flex;
   justify-content: center;
@@ -235,7 +243,8 @@ button {
 
 #learnMoreAbv {
   grid-area: learnMoreAbv;
-  background-color: var(--details-color);
+  background-color: var(--content-background);
+  color: var(--content-text);
   opacity: 0.95;
   display: flex;
   justify-content: center;
@@ -243,7 +252,7 @@ button {
 
 #learnMoreImage {
   grid-area: image;
-  background-color: var(--details-color);
+  background-color: var(--content-background);
   opacity: 0.95;
   display: flex;
   justify-content: center;
@@ -251,7 +260,8 @@ button {
 
 #learnMoreDescription {
   grid-area: learnMoreDescription;
-  background-color: var(--details-color);
+  background-color: var(--content-background);
+  color: var(--content-text);
   opacity: 0.95;
   justify-content: center;
   display: flex;
@@ -259,7 +269,8 @@ button {
 
 #learnMoreFoodPairings {
   grid-area: foodpairing;
-  background-color: var(--details-color);
+  background-color: var(--content-background);
+  color: var(--content-text);
   opacity: 0.95;
   display: flex;
   justify-content: center;
@@ -267,7 +278,8 @@ button {
 
 #learnMoreFirstBrewed {
   grid-area: firstbrewed;
-  background-color: var(--details-color);
+  background-color: var(--content-background);
+  color: var(--content-text);
   opacity: 0.95;
   display: flex;
   justify-content: center;
@@ -275,7 +287,7 @@ button {
 
 #learnMoreFavorites {
   grid-area: favorites;
-  background-color: var(--details-color);
+  background-color: var(--content-background);
   opacity: 0.95;
   display: flex;
   justify-content: center;
@@ -283,7 +295,7 @@ button {
 
 #backButton {
   display: none;
-  color: red;
+  color: var(--button);
 }
 
 #previousButton {
@@ -327,7 +339,7 @@ button {
 
 #addToFavorites {
   width: 50%;
-  color: red;
+  color: var(--button);
   margin-left: auto;
   margin-right: auto;
 }
@@ -378,16 +390,15 @@ button {
 
 #addToFavorites {
   width: 100%;
-  background-color: white;
+  background-color: var(--content-background);
   display: flex;
   justify-content: center;
-  background-color: white;
   opacity: 0.95;
 }
 
 #favoritesTab {
   display: none;
-  background-color: white;
+  background-color: var(--content-background);
   width: 94%;
   margin-top: 15px;
   opacity: 0.95;
@@ -398,6 +409,7 @@ button {
 
 li {
   list-style-type: none;
+  color: var(--content-text);
 }
 
 li:hover {
