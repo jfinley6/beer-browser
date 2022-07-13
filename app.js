@@ -112,11 +112,6 @@ function renderBeer(beerArr) {
             .then(res => res.json())
             .then(datas => {
                 if (datas[beer.id - 1].heart === true) {
-                    let favorite = document.createElement("button")
-                    favorite.setAttribute("onclick", onclick = "setToFavorites(event)")
-                    favorite.classList.add("favorite")
-                    favorite.innerHTML = "Add to Favorites ♥"
-                    favorite.setAttribute("beerIndex", beer.id)
 
                     let learnMore = document.createElement("button")
                     learnMore.setAttribute("beerIndex", beer.id)
@@ -124,13 +119,8 @@ function renderBeer(beerArr) {
                     learnMore.classList.add("learnMore")
                     learnMore.innerHTML = "Learn More"
 
-                    beerContent.append(name, ibu, abv, tagLine, favorite, learnMore)
+                    beerContent.append(name, ibu, abv, tagLine, learnMore)
                 } else {
-                    let favorite = document.createElement("button")
-                    favorite.setAttribute("onclick", onclick = "setToFavorites(event)")
-                    favorite.classList.add("favorite")
-                    favorite.innerHTML = "Add to Favorites ♡"
-                    favorite.setAttribute("beerIndex", beer.id)
 
                     let learnMore = document.createElement("button")
                     learnMore.setAttribute("beerIndex", beer.id)
@@ -138,7 +128,7 @@ function renderBeer(beerArr) {
                     learnMore.classList.add("learnMore")
                     learnMore.innerHTML = "Learn More"
 
-                    beerContent.append(name, ibu, abv, tagLine, favorite, learnMore)
+                    beerContent.append(name, ibu, abv, tagLine, learnMore)
                 }
             }
             )
@@ -199,8 +189,9 @@ function learnMoreBackButton(e) {
     beerBrowse.scrollTo(0, scrollPosition)
 }
 
-function setToFavorites(e) {
-    const beerIndex = e.target.attributes[2].textContent
+function setToLearnMoreFavorites(e) {
+    const beerIndex = e.target.parentElement.attributes[1].textContent;
+    console.log(beerIndex);
     if (e.target.textContent === "Add to Favorites ♡") {
         fetch(`http://localhost:3000/favorites/${beerIndex}`, {
             method: 'PATCH',
@@ -228,38 +219,6 @@ function setToFavorites(e) {
             e.target.textContent = "Add to Favorites ♡"
         })
     }
-}
-
-function setToLearnMoreFavorites(e) {
-    console.log(e.target);
-    // const beerIndex = e.target.attributes[2].textContent
-    // if (e.target.textContent === "Add to Favorites ♡") {
-    //     fetch(`http://localhost:3000/favorites/${beerIndex}`, {
-    //         method: 'PATCH',
-    //         body: JSON.stringify({
-    //             heart: true,
-    //         }),
-    //         headers: {
-    //             'Accept': 'application/json',
-    //             'Content-Type': 'application/json'
-    //         },
-    //     }).then(() => {
-    //         e.target.textContent = "Add to Favorites ♥"
-    //     })
-    // } else {
-    //     fetch(`http://localhost:3000/favorites/${beerIndex}`, {
-    //         method: 'PATCH',
-    //         body: JSON.stringify({
-    //             heart: false,
-    //         }),
-    //         headers: {
-    //             'Accept': 'application/json',
-    //             'Content-Type': 'application/json'
-    //         },
-    //     }).then(() => {
-    //         e.target.textContent = "Add to Favorites ♡"
-    //     })
-    // }
 }
 
 function loadNextPage(e) {
@@ -332,6 +291,7 @@ function getRandomBeer() {
             document.querySelector("#learnMoreDescription").innerText = randomBeer[0].description
             document.querySelector("#learnMoreFoodPairings").innerText = `Great Food Pairings: ${randomBeer[0].food_pairing}`
             document.querySelector("#learnMoreFirstBrewed").innerText = `First Brewed: ${randomBeer[0].first_brewed}`
+            document.querySelector("#addToFavorites").setAttribute("index", randomBeer[0].id)
             if (randomBeer[0].image_url === null) {
                 document.querySelector("#image").src = "https://images.punkapi.com/v2/keg.png"
             } else {

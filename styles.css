@@ -66,7 +66,7 @@ body {
   grid-template-areas:
     "name name ibu abv"
     "tagLine tagLine tagLine tagLine"
-    "favorite favorite learnMore learnMore";
+    "learnMore learnMore learnMore learnMore";
   color: black;
   font-size: 0.9em;
   opacity: 0.95;
@@ -132,7 +132,7 @@ button {
   background-color: var(--color);
   color: red;
   transition: all 0.35s ease-in-out;
-  border-radius: 0 0 15px 0;
+  border-radius: 0 0 15px 15px;
 }
 
 .learnMore:hover {
@@ -378,5 +378,13 @@ button {
 #searchName-bar:hover {
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
   border-radius: 15px;
- 
+}
+
+#addToFavorites {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  opacity: 0.95;
 }
