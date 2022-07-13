@@ -25,17 +25,25 @@
                     </div>
                     <div id="title">John & Kelan's Beer Browser</div>
                 </div>
-                <div id="browse" onclick="changePageIndex()">Browse</div>
-                <div id="favorites">Favorites</div>
+                <div id="browse" onclick="changePageIndex()">Browse All</div>
+                <div id="favorites" onclick="loadFavorites()">Favorites</div>
                 <div id="settings">Settings</div>
             </div>
             <div id="filters">
-                <div id="search-container">
-                    <form id="search-form" onsubmit="searchByAbv(event)">
-                        <input type="text" name="search-bar" id="search-bar" placeholder="Search by ABV:">
-                        <input type="submit" value='Search'>
-                    </form>
-                </div>
+
+                <form id="search-form" onsubmit="searchByAbv(event)" autocomplete="off">
+                    <input type="text" name="search-bar" id="search-bar" placeholder=" Search by Minimum ABV">
+                    <input type="submit" value='Search'>
+                </form>
+                <form id="searchIbu-form" onsubmit="searchByIbu(event)" autocomplete="off">
+                    <input type="text" name="search-bar" id="searchIbu-bar" placeholder=" Search by Minimum IBU">
+                    <input type="submit" value='Search'>
+                </form>
+                <form id="searchName-form" onsubmit="searchByName(event)" autocomplete="off">
+                    <input type="text" name="search-bar" id="searchName-bar" placeholder=" Search by Name">
+                    <input type="submit" value='Search'>
+                </form>
+
                 <button id="getRandomBeer" onclick="getRandomBeer(event)"> Get Random Beer</button>
             </div>
             <div id="pageButtons">
@@ -53,6 +61,12 @@
             </div>
 
             <div id="beerBrowse">
+                <div id="favoritesTab">
+                    <h2>Favorites</h2>
+                    <ul id="favoritesList">
+
+                    </ul>
+                </div>
                 <div id="learnMore">
                     <div id="learnMoreImage">
                         <image id="image"></image>
@@ -63,7 +77,9 @@
                     <div id="learnMoreDescription">Description</div>
                     <div id="learnMoreFoodPairings">Food Pairings</div>
                     <div id="learnMoreFirstBrewed">First Brewed</div>
-                    <button id="addToFavorites">Add to Favorites ♡</button>
+                    <div id="addToFavorites"><button id="favoriteButton"
+                            style="color:red; width: 20%; background-color: white;"
+                            onclick="setToLearnMoreFavorites(event)">Add to Favorites ♡</button></div>
                 </div>
             </div>
         </div>

@@ -22,24 +22,24 @@ body {
   grid-template-columns: 2fr 0.5fr 0.5fr 0.5fr;
   align-content: center;
   justify-items: center;
+  opacity: 0.95;
 }
 
 #filters {
-  background-color: red;
+  background-color: white;
+  opacity: 0.95;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
 
 #beerBrowse {
-
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   padding-bottom: 10px;
   overflow-y: scroll;
   width: 100vw;
-
 }
 
 #titleSection {
@@ -53,7 +53,7 @@ body {
   justify-content: space-evenly;
   align-items: center;
   opacity: 0.95;
-  background-color: white;
+  background-color: rgb(26, 179, 26);
 }
 
 .beerContent {
@@ -66,7 +66,7 @@ body {
   grid-template-areas:
     "name name ibu abv"
     "tagLine tagLine tagLine tagLine"
-    "favorite favorite learnMore learnMore";
+    "learnMore learnMore learnMore learnMore";
   color: black;
   font-size: 0.9em;
   opacity: 0.95;
@@ -132,7 +132,7 @@ button {
   background-color: var(--color);
   color: red;
   transition: all 0.35s ease-in-out;
-  border-radius: 0 0 15px 0;
+  border-radius: 0 0 15px 15px;
 }
 
 .learnMore:hover {
@@ -155,7 +155,7 @@ button {
 #FIS {
   width: 125px;
   height: auto;
-  filter: brightness(70%)
+  filter: brightness(70%);
 }
 
 #browse {
@@ -291,8 +291,8 @@ button {
 }
 
 #previousButton:hover {
-    cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
-    border-radius: 15px;
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+  border-radius: 15px;
 }
 
 #nextButton {
@@ -302,8 +302,8 @@ button {
 }
 
 #nextButton:hover {
-    cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
-    border-radius: 15px;
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+  border-radius: 15px;
 }
 
 #pageIndex {
@@ -312,22 +312,97 @@ button {
   align-items: center;
   background-color: pink;
   width: 80px;
-  
-} 
+}
 
 #backButton:hover {
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
 }
 
 #image {
-    height: 100px;
-    width: auto;
-    margin-top: 10px;
+  height: 100px;
+  width: auto;
+  margin-top: 10px;
 }
 
 #addToFavorites {
-    width: 50%;
-    color: red;
-    margin-left: auto;
-    margin-right: auto;
+  width: 50%;
+  color: red;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#search-bar {
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+  background-color: pink;
+  width: 195px;
+}
+
+#search-bar:hover {
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+  border-radius: 15px;
+}
+
+#getRandomBeer {
+  background-color: pink;
+  width: 150px;
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+  transition: all 0.35s ease-in-out;
+}
+#getRandomBeer:hover {
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+  border-radius: 15px;
+}
+
+#searchIbu-bar {
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+  background-color: pink;
+  width: 195px;
+}
+
+#searchIbu-bar:hover {
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+  border-radius: 15px;
+}
+
+#searchName-bar {
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+  background-color: pink;
+  width: 195px;
+}
+
+#searchName-bar:hover {
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+  border-radius: 15px;
+}
+
+#addToFavorites {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  opacity: 0.95;
+}
+
+#favoritesTab {
+  display: none;
+  background-color: white;
+  width: 94%;
+  margin-top: 15px;
+  opacity: 0.95;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+li {
+  list-style-type: none;
+}
+
+li:hover {
+  cursor: pointer;
+}
+
+#favoritesList {
+  padding: 0;
 }
