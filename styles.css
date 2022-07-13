@@ -63,7 +63,7 @@ body {
   grid-template-areas:
     "name name ibu abv"
     "tagLine tagLine tagLine tagLine"
-    "favorite favorite learnMore learnMore";
+    "learnMore learnMore learnMore learnMore";
   color: black;
   font-size: 0.9em;
   opacity: 0.95;
@@ -126,6 +126,7 @@ button {
   background-color: var(--color);
   color: red;
   transition: all 0.35s ease-in-out;
+  border-radius: 0 0 15px 15px;
 }
 
 .learnMore:hover {
@@ -303,4 +304,49 @@ button {
     height: 100px;
     width: auto;
     margin-top: 10px;
+}
+
+#addToFavorites {
+    width: 50%;
+    color: red;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#search-bar {
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+  background-color: pink;
+}
+
+#search-bar:hover {
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+  border-radius: 15px;
+ 
+}
+
+#getRandomBeer {
+  background-color: pink;
+  width: 150px;
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+  transition: all 0.35s ease-in-out;
+  
+ 
+}
+#getRandomBeer:hover {
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+  border-radius: 15px;
+}
+
+#addToFavorites {
+  width: 100%;
+  background-color: white;
+  opacity: 0.95;
+  display: flex;
+  justify-content: center;
+}
+
+#favoritesButton {
+  color: red;
+  background-color: white;
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
 }
