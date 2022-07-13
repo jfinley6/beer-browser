@@ -150,6 +150,7 @@ function loadLearnMore(e) {
     fetch(`https://api.punkapi.com/v2/beers/${beerIndex}`)
         .then(res => res.json())
         .then(data => {
+            document.querySelector("#pageButtons").style.display = ""
             document.querySelector("#backButton").style.display = "block"
             document.querySelector("#nextButton").style.display = "none"
             document.querySelector("#previousButton").style.display = "none"
