@@ -332,6 +332,12 @@ function loadFavorites() {
             beer.remove()
         })
     }
+    const LiClass = document.querySelectorAll(".favoriteLi")
+    if (LiClass.length > 0) {
+        LiClass.forEach(li => {
+            li.remove()
+        })
+    }
     document.querySelector("#beerBrowse").style.gridTemplateColumns = "1fr"
     document.querySelector("#favoritesTab").style.display = "flex"
     document.querySelector("#learnMore").style.display = "none"
@@ -368,7 +374,44 @@ function loadFavorites() {
 }
 
 function loadFavoriteDetails(e) {
-    loadLearnMore(e)
+    document.querySelector("#favoritesTab").style.display = "none"
+    let beerIndex = e.target.attributes[1].textContent;
+    fetch(`https://api.punkapi.com/v2/beers/${beerIndex}`)
+        .then(res => res.json())
+        .then(data => {
+            document.querySelector("#pageIndex").style.display = "none"
+            document.querySelector("#filters").style.display = "none"
+            document.querySelector("#container").style.gridTemplateRows = "0.1fr 1fr"
+            scrollPosition = document.getElementById("beerBrowse").scrollTop;
+            let beerBrowse = document.querySelector("#beerBrowse")
+            beerBrowse.style.gridTemplateColumns = "1fr"
+            beerBrowse.style.overflowY = "hidden"
+            let learnMoreButton = document.querySelector("#learnMore")
+            learnMoreButton.style.display = "flex";
+            beerContent = document.querySelectorAll(".beerContent")
+            beerContent.forEach(beer => {
+                beer.style.display = "none"
+            })
+            document.querySelector("#image").src = data[0].image_url
+            document.querySelector("#learnMoreName").innerText = `Name: ${data[0].name}`
+            document.querySelector("#learnMoreIbu").innerText = `IBU: ${data[0].ibu}`
+            document.querySelector("#learnMoreAbv").innerText = `ABV: ${data[0].abv}`
+            document.querySelector("#learnMoreDescription").innerText = data[0].description
+            document.querySelector("#learnMoreFoodPairings").innerText = `Great Food Pairings: ${data[0].food_pairing}`
+            document.querySelector("#learnMoreFirstBrewed").innerText = `First Brewed: ${data[0].first_brewed}`
+            document.querySelector("#addToFavorites").setAttribute("index", data[0].id)
+
+            fetch(`http://localhost:3000/favorites/${beerIndex}`)
+                .then(res => res.json())
+                .then(favoriteData => {
+                    if (favoriteData.heart === true) {
+                        document.querySelector("#favoriteButton").textContent = "Add to Favorites ♥"
+                    } else {
+                        document.querySelector("#favoriteButton").textContent = "Add to Favorites ♡"
+                    }
+                })
+
+        })
 }
 
 // document.querySelector("#settings").addEventListener('click', () => {
