@@ -29,7 +29,15 @@
                 <div id="favorites">Favorites</div>
                 <div id="settings">Settings</div>
             </div>
-            <div id="filters">Filters</div>
+            <div id="filters">
+                <div id="search-container">
+                    <form id="search-form" onsubmit="searchByAbv(event)">
+                        <input type="text" name="search-bar" id="search-bar" placeholder="Search by ABV:">
+                        <input type="submit" value='Search'>
+                    </form>
+                </div>
+                <button id="getRandomBeer" onclick="getRandomBeer(event)"> Get Random Beer</button>
+            </div>
             <div id="pageButtons">
                 <button id="backButton" onclick="learnMoreBackButton(event)">
                     Back
@@ -55,6 +63,7 @@
                     <div id="learnMoreDescription">Description</div>
                     <div id="learnMoreFoodPairings">Food Pairings</div>
                     <div id="learnMoreFirstBrewed">First Brewed</div>
+                    <button id="addToFavorites">Add to Favorites ♡</button>
                 </div>
             </div>
         </div>

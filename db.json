@@ -2,11 +2,11 @@
   "favorites": [
     {
       "id": 1,
-      "heart": true
+      "heart": false
     },
     {
       "id": 2,
-      "heart": true
+      "heart": false
     },
     {
       "id": 3,
@@ -218,7 +218,7 @@
     },
     {
       "id": 55,
-      "heart": false
+      "heart": true
     },
     {
       "id": 56,
@@ -330,7 +330,7 @@
     },
     {
       "id": 83,
-      "heart": false
+      "heart": true
     },
     {
       "id": 84,
