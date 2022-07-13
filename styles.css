@@ -388,3 +388,7 @@ button {
   background-color: white;
   opacity: 0.95;
 }
+
+#favoritesTab {
+  display: none;
+}

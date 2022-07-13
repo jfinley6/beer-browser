@@ -265,6 +265,23 @@ function changePageIndex() {
     callBeer()
 }
 
+function loadFavorites() {
+    const beerClass = document.querySelectorAll(".beerContent")
+    if (beerClass.length > 0) {
+        beerClass.forEach(beer => {
+            beer.remove()
+        })
+    }
+    document.querySelector("#backButton").style.display = "none"
+    document.querySelector("#pageButtons").style.display = "none"
+    document.querySelector("#nextButton").style.display = "none"
+    document.querySelector("#previousButton").style.display = "none"
+    document.querySelector("#pageIndex").style.display = "none"
+    document.querySelector("#filters").style.display = "none"
+    document.querySelector("#container").style.gridTemplateRows = "0.1fr 1fr"
+    
+}
+
 function getRandomBeer() {
     fetch('https://api.punkapi.com/v2/beers/random')
         .then(res => res.json())

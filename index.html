@@ -26,7 +26,7 @@
                     <div id="title">John & Kelan's Beer Browser</div>
                 </div>
                 <div id="browse" onclick="changePageIndex()">Browse All</div>
-                <div id="favorites">Favorites</div>
+                <div id="favorites" onclick="loadFavorites()">Favorites</div>
                 <div id="settings">Settings</div>
             </div>
             <div id="filters">
@@ -61,6 +61,7 @@
             </div>
 
             <div id="beerBrowse">
+                <div id="favoritesTab"></div>
                 <div id="learnMore">
                     <div id="learnMoreImage">
                         <image id="image"></image>
