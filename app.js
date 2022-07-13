@@ -285,6 +285,7 @@ function loadPreviousPage(e) {
 
 function changePageIndex() {
     document.querySelector("#backButton").style.display = "none"
+    document.querySelector("#pageButtons").style.display = ""
     document.querySelector("#nextButton").style.display = ""
     document.querySelector("#previousButton").style.display = ""
     document.querySelector("#pageIndex").style.display = ""
