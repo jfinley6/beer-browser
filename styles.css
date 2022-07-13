@@ -32,14 +32,12 @@ body {
 }
 
 #beerBrowse {
-
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   padding-bottom: 10px;
   overflow-y: scroll;
   width: 100vw;
-
 }
 
 #titleSection {
@@ -155,7 +153,7 @@ button {
 #FIS {
   width: 125px;
   height: auto;
-  filter: brightness(70%)
+  filter: brightness(70%);
 }
 
 #browse {
@@ -291,8 +289,8 @@ button {
 }
 
 #previousButton:hover {
-    cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
-    border-radius: 15px;
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+  border-radius: 15px;
 }
 
 #nextButton {
@@ -302,8 +300,8 @@ button {
 }
 
 #nextButton:hover {
-    cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
-    border-radius: 15px;
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+  border-radius: 15px;
 }
 
 #pageIndex {
@@ -312,22 +310,22 @@ button {
   align-items: center;
   background-color: pink;
   width: 80px;
-  
-} 
+}
 
 #backButton:hover {
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
 }
 
 #image {
-    height: 100px;
-    width: auto;
-    margin-top: 10px;
+  height: 100px;
+  width: auto;
+  margin-top: 10px;
 }
 
 #addToFavorites {
-    width: 50%;
-    color: red;
-    margin-left: auto;
-    margin-right: auto;
+  opacity: 0.95;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  color: red;
 }
