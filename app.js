@@ -4,7 +4,7 @@ const navBar = document.querySelector("#navBar")
 
 document.addEventListener("DOMContentLoaded", () => {
     if (localStorage.getItem('colo') === null) {
-        navBar.style.backgroundColor = "rgb(26, 179, 26)"
+        navBar.style.backgroundColor = navBar.style.backgroundColor
     } else {
         navBar.style.backgroundColor = localStorage.getItem('color')
     }

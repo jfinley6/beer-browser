@@ -27,7 +27,7 @@ body {
 }
 
 #filters {
-  background-color: white;
+  background-color: var(--light);
   opacity: 0.95;
   display: flex;
   justify-content: space-evenly;
@@ -82,7 +82,7 @@ button {
 
 .name {
   grid-area: name;
-  background-color: var(--color);
+  background-color: var(--light);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,7 +91,7 @@ button {
 
 .ibu {
   grid-area: ibu;
-  background-color: var(--color);
+  background-color: var(--light);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,7 +99,7 @@ button {
 
 .abv {
   grid-area: abv;
-  background-color: var(--color);
+  background-color: var(--light);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -108,7 +108,7 @@ button {
 
 .tagLine {
   grid-area: tagLine;
-  background-color: var(--color);
+  background-color: var(--light);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -116,7 +116,7 @@ button {
 
 .favorite {
   grid-area: favorite;
-  background-color: var(--color);
+  background-color: var(--light);
   color: red;
   transition: all 0.35s ease-in-out;
   border-radius: 0 0 0 15px;
@@ -130,7 +130,7 @@ button {
 
 .learnMore {
   grid-area: learnMore;
-  background-color: var(--color);
+  background-color: var(--light);
   color: red;
   transition: all 0.35s ease-in-out;
   border-radius: 0 0 15px 15px;
