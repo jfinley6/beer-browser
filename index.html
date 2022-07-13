@@ -30,12 +30,20 @@
                 <div id="settings">Settings</div>
             </div>
             <div id="filters">
-                <div id="search-container">
+                
                     <form id="search-form" onsubmit="searchByAbv(event)"autocomplete = "off">
-                        <input type="text" name="search-bar" id="search-bar" placeholder=" Search by ABV:">
+                        <input type="text" name="search-bar" id="search-bar" placeholder=" Search by Minimum ABV">
                         <input type="submit" value='Search'>
                     </form>
-                </div>
+                    <form id="searchIbu-form" onsubmit="searchByIbu(event)"autocomplete = "off">
+                        <input type="text" name="search-bar" id="searchIbu-bar" placeholder=" Search by Minimum IBU">
+                        <input type="submit" value='Search'>
+                    </form>
+                    <form id="searchName-form" onsubmit="searchByName(event)"autocomplete = "off">
+                        <input type="text" name="search-bar" id="searchName-bar" placeholder=" Search by Name">
+                        <input type="submit" value='Search'>
+                    </form>
+                
                 <button id="getRandomBeer" onclick="getRandomBeer(event)"> Get Random Beer</button>
             </div>
             <div id="pageButtons">
