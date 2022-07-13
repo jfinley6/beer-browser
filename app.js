@@ -297,12 +297,6 @@ function loadPreviousPage(e) {
 }
 
 function changePageIndex() {
-    const LiClass = document.querySelectorAll(".favoriteLi")
-    if (LiClass.length > 0) {
-        LiClass.forEach(li => {
-            li.remove()
-        })
-    }
     document.querySelector("#favoritesTab").style.display = "none"
     document.querySelector("#backButton").style.display = "none"
     document.querySelector("#pageButtons").style.display = ""
@@ -350,26 +344,26 @@ function loadFavorites() {
     document.querySelector("#container").style.gridTemplateRows = "0.1fr 1fr"
 
     fetch("http://localhost:3000/favorites")
-    .then(res => res.json())
-    .then(datas => {
-        datas.forEach(data => {
-            if (data["heart"] === true) {
-                fetch(`https://api.punkapi.com/v2/beers/${data["id"]}`)
-                .then(res => res.json())
-                .then(data => {
-                    const favoritesList = document.querySelector("#favoritesList")
-                    const li = document.createElement("li")
-                    li.classList.add("favoriteLi")
-                    li.textContent = data[0].name
-                    favoritesList.appendChild(li)
-                    li.setAttribute("index", data[0].id)
-                    li.setAttribute("onclick", "loadFavoriteDetails(event)")
-                })
-                
+        .then(res => res.json())
+        .then(datas => {
+            datas.forEach(data => {
+                if (data["heart"] === true) {
+                    fetch(`https://api.punkapi.com/v2/beers/${data["id"]}`)
+                        .then(res => res.json())
+                        .then(data => {
+                            const favoritesList = document.querySelector("#favoritesList")
+                            const li = document.createElement("li")
+                            li.classList.add("favoriteLi")
+                            li.textContent = data[0].name
+                            favoritesList.appendChild(li)
+                            li.setAttribute("index", data[0].id)
+                            li.setAttribute("onclick", "loadFavoriteDetails(event)")
+                        })
 
-            }
+
+                }
+            })
         })
-    })
 
 }
 
