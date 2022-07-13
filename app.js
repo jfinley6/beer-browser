@@ -1,6 +1,13 @@
 let pageNumber = 1
 
+const navBar = document.querySelector("#navBar")
+
 document.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem('colo') === null) {
+        navBar.style.backgroundColor = "rgb(26, 179, 26)"
+    } else {
+        navBar.style.backgroundColor = localStorage.getItem('color')
+    }
     callBeer()
 })
 
@@ -165,6 +172,8 @@ function renderBeer(beerArr) {
 }
 
 function loadLearnMore(e) {
+    document.querySelector("#favoritesTab").style.display = "none"
+
     let beerIndex = e.target.attributes[0].textContent;
     fetch(`https://api.punkapi.com/v2/beers/${beerIndex}`)
         .then(res => res.json())
@@ -288,6 +297,13 @@ function loadPreviousPage(e) {
 }
 
 function changePageIndex() {
+    const LiClass = document.querySelectorAll(".favoriteLi")
+    if (LiClass.length > 0) {
+        LiClass.forEach(li => {
+            li.remove()
+        })
+    }
+    document.querySelector("#favoritesTab").style.display = "none"
     document.querySelector("#backButton").style.display = "none"
     document.querySelector("#pageButtons").style.display = ""
     document.querySelector("#nextButton").style.display = ""
@@ -316,6 +332,9 @@ function loadFavorites() {
             beer.remove()
         })
     }
+    document.querySelector("#beerBrowse").style.gridTemplateColumns = "1fr"
+    document.querySelector("#favoritesTab").style.display = "flex"
+    document.querySelector("#learnMore").style.display = "none"
     document.querySelector("#backButton").style.display = "none"
     document.querySelector("#pageButtons").style.display = "none"
     document.querySelector("#nextButton").style.display = "none"
@@ -324,8 +343,35 @@ function loadFavorites() {
     document.querySelector("#filters").style.display = "none"
     document.querySelector("#container").style.gridTemplateRows = "0.1fr 1fr"
 
+    fetch("http://localhost:3000/favorites")
+    .then(res => res.json())
+    .then(datas => {
+        datas.forEach(data => {
+            if (data["heart"] === true) {
+                fetch(`https://api.punkapi.com/v2/beers/${data["id"]}`)
+                .then(res => res.json())
+                .then(data => {
+                    const favoritesList = document.querySelector("#favoritesList")
+                    const li = document.createElement("li")
+                    li.classList.add("favoriteLi")
+                    li.textContent = data[0].name
+                    favoritesList.appendChild(li)
+                    li.setAttribute("index", data[0].id)
+                    li.setAttribute("onclick", "loadFavoriteDetails(event)")
+                })
+                
+
+            }
+        })
+    })
+
 }
 
-document.querySelector("#settings").addEventListener('click', () => {
-    localStorage.setItem('color', 'green')
-})
+function loadFavoriteDetails(e) {
+    loadLearnMore(e)
+}
+
+// document.querySelector("#settings").addEventListener('click', () => {
+//     localStorage.setItem('color', 'yellow')
+//     navBar.style.backgroundColor = "yellow"
+// })
