@@ -368,3 +368,15 @@ button {
   border-radius: 15px;
  
 }
+
+#searchName-bar {
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+  background-color: pink;
+  width: 195px;
+}
+
+#searchName-bar:hover {
+  cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+  border-radius: 15px;
+ 
+}
