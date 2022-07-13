@@ -14,7 +14,7 @@ function callBeer(page = 1) {
     fetch(`https://api.punkapi.com/v2/beers?page=${page}&per_page=27`)
         .then(res => res.json())
         .then(beerArr => renderBeer(beerArr))
-        
+
 }
 
 function searchByAbv(e) {
@@ -27,14 +27,18 @@ function searchByAbv(e) {
             if (beerClass.length > 0) {
                 beerClass.forEach(beer => {
                     beer.remove()
-            // document.querySelector("#backButton").style.display = "block" uncomment to add the back button 
+                    // document.querySelector("#backButton").style.display = "block" uncomment to add the back button 
+                })
+            }
+            document.querySelector("#backButton").style.display = "block"
+            document.querySelector("#backButton").setAttribute("filter", "abv")
+            document.querySelector("#pageButtons").style.display = ""
             document.querySelector("#nextButton").style.display = "none"
             document.querySelector("#previousButton").style.display = "none"
             document.querySelector("#pageIndex").style.display = "none"
+            document.querySelector("#filters").style.display = "none"
             document.querySelector("#container").style.gridTemplateRows = "0.1fr 0.1fr 1fr"
             document.querySelector("#search-form").reset()
-                })
-            }
             renderBeer(beersArr)
 
         }
@@ -51,18 +55,57 @@ function searchByIbu(e) {
             if (beerClass.length > 0) {
                 beerClass.forEach(beer => {
                     beer.remove()
-            // document.querySelector("#backButton").style.display = "block" uncomment to add the back button 
+                    // document.querySelector("#backButton").style.display = "block" uncomment to add the back button 
+                })
+            }
+            document.querySelector("#backButton").style.display = "block"
+            document.querySelector("#backButton").setAttribute("filter", "ibu")
+            document.querySelector("#pageButtons").style.display = ""
             document.querySelector("#nextButton").style.display = "none"
             document.querySelector("#previousButton").style.display = "none"
             document.querySelector("#pageIndex").style.display = "none"
+            document.querySelector("#filters").style.display = "none"
             document.querySelector("#container").style.gridTemplateRows = "0.1fr 0.1fr 1fr"
             document.querySelector("#searchIbu-form").reset()
-                })
-            }
             renderBeer(beersArr)
 
         }
         )
+}
+
+function getRandomBeer() {
+    fetch('https://api.punkapi.com/v2/beers/random')
+        .then(res => res.json())
+        .then(randomBeer => {
+            document.querySelector("#backButton").style.display = "block"
+            document.querySelector("#nextButton").style.display = "none"
+            document.querySelector("#previousButton").style.display = "none"
+            document.querySelector("#pageIndex").style.display = "none"
+            document.querySelector("#filters").style.display = "none"
+            document.querySelector("#container").style.gridTemplateRows = "0.1fr 0.1fr 1fr"
+            scrollPosition = document.getElementById("beerBrowse").scrollTop;
+            let beerBrowse = document.querySelector("#beerBrowse")
+            beerBrowse.style.gridTemplateColumns = "1fr"
+            beerBrowse.style.overflowY = "hidden"
+            let learnMoreButton = document.querySelector("#learnMore")
+            learnMoreButton.style.display = "flex";
+            beerContent = document.querySelectorAll(".beerContent")
+            beerContent.forEach(beer => {
+                beer.style.display = "none"
+            })
+            document.querySelector("#learnMoreName").innerText = `Name: ${randomBeer[0].name}`
+            document.querySelector("#learnMoreIbu").innerText = `IBU: ${randomBeer[0].ibu}`
+            document.querySelector("#learnMoreAbv").innerText = `ABV: ${randomBeer[0].abv}`
+            document.querySelector("#learnMoreDescription").innerText = randomBeer[0].description
+            document.querySelector("#learnMoreFoodPairings").innerText = `Great Food Pairings: ${randomBeer[0].food_pairing}`
+            document.querySelector("#learnMoreFirstBrewed").innerText = `First Brewed: ${randomBeer[0].first_brewed}`
+            document.querySelector("#addToFavorites").setAttribute("index", randomBeer[0].id)
+            if (randomBeer[0].image_url === null) {
+                document.querySelector("#image").src = "https://images.punkapi.com/v2/keg.png"
+            } else {
+                document.querySelector("#image").src = randomBeer[0].image_url
+            }
+        })
 }
 
 function searchByName(e) {
@@ -75,15 +118,18 @@ function searchByName(e) {
             if (beerClass.length > 0) {
                 beerClass.forEach(beer => {
                     beer.remove()
-            // document.querySelector("#backButton").style.display = "block"uncomment to add the back button
-            document.querySelector("#nextButton").style.display = "none"
-            document.querySelector("#pageButtons").style.display = "none"
-            document.querySelector("#previousButton").style.display = "none"
-            document.querySelector("#pageIndex").style.display = "none"
-            document.querySelector("#container").style.gridTemplateRows = "0.1fr 0.1fr 1fr"
-            document.querySelector("#searchName-form").reset()
+                    // document.querySelector("#backButton").style.display = "block" uncomment to add the back button 
                 })
             }
+            document.querySelector("#backButton").style.display = "block"
+            document.querySelector("#backButton").setAttribute("filter", "name")
+            document.querySelector("#pageButtons").style.display = ""
+            document.querySelector("#nextButton").style.display = "none"
+            document.querySelector("#previousButton").style.display = "none"
+            document.querySelector("#pageIndex").style.display = "none"
+            document.querySelector("#filters").style.display = "none"
+            document.querySelector("#container").style.gridTemplateRows = "0.1fr 0.1fr 1fr"
+            document.querySelector("#searchName-form").reset()
             renderBeer(beersArr)
 
         }
@@ -147,25 +193,30 @@ function loadLearnMore(e) {
             document.querySelector("#learnMoreDescription").innerText = data[0].description
             document.querySelector("#learnMoreFoodPairings").innerText = `Great Food Pairings: ${data[0].food_pairing}`
             document.querySelector("#learnMoreFirstBrewed").innerText = `First Brewed: ${data[0].first_brewed}`
-            document.querySelector("#addToFavorites").setAttribute("index",  data[0].id)
+            document.querySelector("#addToFavorites").setAttribute("index", data[0].id)
 
             fetch(`http://localhost:3000/favorites/${beerIndex}`)
                 .then(res => res.json())
                 .then(favoriteData => {
-                        if (favoriteData.heart === true) {
-                            document.querySelector("#favoriteButton").textContent = "Add to Favorites ♥" 
-                        } else {
-                            document.querySelector("#favoriteButton").textContent = "Add to Favorites ♡" 
-                        }
+                    if (favoriteData.heart === true) {
+                        document.querySelector("#favoriteButton").textContent = "Add to Favorites ♥"
+                    } else {
+                        document.querySelector("#favoriteButton").textContent = "Add to Favorites ♡"
+                    }
                 })
-            
+
         })
 
 
 }
 
-function learnMoreBackButton(e) {
-    document.querySelector("#backButton").style.display = "none"
+function learnMoreBackButton(e, scrollPosition = 0) {
+    const backButton = document.querySelector("#backButton")
+
+    if (backButton.getAttribute("filter") === "abv" || backButton.getAttribute("filter") === "ibu" || backButton.getAttribute("filter") === "name") {
+        callBeer()
+    }
+    backButton.style.display = "none"
     document.querySelector("#nextButton").style.display = ""
     document.querySelector("#previousButton").style.display = ""
     document.querySelector("#pageIndex").style.display = ""
@@ -272,43 +323,7 @@ function loadFavorites() {
     document.querySelector("#pageIndex").style.display = "none"
     document.querySelector("#filters").style.display = "none"
     document.querySelector("#container").style.gridTemplateRows = "0.1fr 1fr"
-    
-}
 
-function getRandomBeer() {
-    fetch('https://api.punkapi.com/v2/beers/random')
-        .then(res => res.json())
-        .then(randomBeer => {
-            document.querySelector("#backButton").style.display = "block"
-            document.querySelector("#nextButton").style.display = "none"
-            document.querySelector("#previousButton").style.display = "none"
-            document.querySelector("#pageButtons").style.display = "none"
-            document.querySelector("#pageIndex").style.display = "none"
-            document.querySelector("#filters").style.display = "none"
-            document.querySelector("#container").style.gridTemplateRows = "0.1fr 1fr"
-            scrollPosition = document.getElementById("beerBrowse").scrollTop;
-            let beerBrowse = document.querySelector("#beerBrowse")
-            beerBrowse.style.gridTemplateColumns = "1fr"
-            beerBrowse.style.overflowY = "hidden"
-            let learnMoreButton = document.querySelector("#learnMore")
-            learnMoreButton.style.display = "flex";
-            beerContent = document.querySelectorAll(".beerContent")
-            beerContent.forEach(beer => {
-                beer.style.display = "none"
-            })
-            document.querySelector("#learnMoreName").innerText = `Name: ${randomBeer[0].name}`
-            document.querySelector("#learnMoreIbu").innerText = `IBU: ${randomBeer[0].ibu}`
-            document.querySelector("#learnMoreAbv").innerText = `ABV: ${randomBeer[0].abv}`
-            document.querySelector("#learnMoreDescription").innerText = randomBeer[0].description
-            document.querySelector("#learnMoreFoodPairings").innerText = `Great Food Pairings: ${randomBeer[0].food_pairing}`
-            document.querySelector("#learnMoreFirstBrewed").innerText = `First Brewed: ${randomBeer[0].first_brewed}`
-            document.querySelector("#addToFavorites").setAttribute("index", randomBeer[0].id)
-            if (randomBeer[0].image_url === null) {
-                document.querySelector("#image").src = "https://images.punkapi.com/v2/keg.png"
-            } else {
-                document.querySelector("#image").src = randomBeer[0].image_url
-            }
-        })
 }
 
 document.querySelector("#settings").addEventListener('click', () => {
