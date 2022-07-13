@@ -1,9 +1,6 @@
 :root {
-  --color: white;
-  --details-color: white;
   --content-background: white;
   --content-text: black;
-
   --button: red;
   --theme-background: rgb(26, 179, 26);
   --learn-more-hover: rgb(201, 201, 201);

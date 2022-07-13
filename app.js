@@ -1,6 +1,7 @@
 let pageNumber = 1
 
 const navBar = document.querySelector("#navBar")
+const buttons = document.querySelector("#pageButtons")
 
 document.addEventListener("DOMContentLoaded", () => {
     if (localStorage.getItem('colo') === null) {
@@ -410,5 +411,7 @@ function loadFavoriteDetails(e) {
 
 // document.querySelector("#settings").addEventListener('click', () => {
 //     localStorage.setItem('color', 'yellow')
-//     navBar.style.backgroundColor = "yellow"
+//     let color = localStorage.getItem('color')
+//     navBar.style.backgroundColor = color
+//     buttons.style.backgroundColor = color
 // })
