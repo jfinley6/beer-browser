@@ -30,6 +30,12 @@
                 <div id="settings">Settings</div>
             </div>
             <div id="filters">
+                <div id="search-container">
+                    <form id="search-form" onsubmit="searchByAbv(event)">
+                        <input type="text" name="search-bar" id="search-bar" placeholder="Search by ABV:">
+                        <input type="submit" value='Search'>
+                    </form>
+                </div>
                 <button id="getRandomBeer" onclick="getRandomBeer(event)"> Get Random Beer</button>
             </div>
             <div id="pageButtons">

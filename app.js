@@ -1,5 +1,6 @@
 let pageNumber = 1
 
+
 document.addEventListener("DOMContentLoaded", () => {
     callBeer()
 })
@@ -14,7 +15,28 @@ function callBeer(page = 1) {
     fetch(`https://api.punkapi.com/v2/beers?page=${page}&per_page=27`)
         .then(res => res.json())
         .then(beerArr => renderBeer(beerArr))
+        
 }
+
+function searchByAbv(e) {
+    e.preventDefault()
+    let searchInput = document.querySelector("#search-bar").value
+    fetch(`https://api.punkapi.com/v2/beers?abv_gt=${searchInput}`)
+        .then(res => res.json())
+        .then(beersArr => {
+            const beerClass = document.querySelectorAll(".beerContent")
+            if (beerClass.length > 0) {
+                beerClass.forEach(beer => {
+                    beer.remove()
+                })
+            }
+            renderBeer(beersArr)
+
+        }
+        )
+}
+
+   
 
 function renderBeer(beerArr) {
     beerArr.forEach(beer => {

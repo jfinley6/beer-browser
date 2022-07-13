@@ -2,7 +2,7 @@
   "favorites": [
     {
       "id": 1,
-      "heart": true
+      "heart": false
     },
     {
       "id": 2,
