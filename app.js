@@ -1,6 +1,5 @@
 let pageNumber = 1
 
-
 document.addEventListener("DOMContentLoaded", () => {
     callBeer()
 })
@@ -41,8 +40,6 @@ function searchByAbv(e) {
         }
         )
 }
-
-   
 
 function renderBeer(beerArr) {
     beerArr.forEach(beer => {
@@ -127,6 +124,7 @@ function loadLearnMore(e) {
             document.querySelector("#learnMoreDescription").innerText = data[0].description
             document.querySelector("#learnMoreFoodPairings").innerText = `Great Food Pairings: ${data[0].food_pairing}`
             document.querySelector("#learnMoreFirstBrewed").innerText = `First Brewed: ${data[0].first_brewed}`
+            document.querySelector("#addToFavorites").setAttribute("index",  data[0].id)
         })
 
 
@@ -180,6 +178,38 @@ function setToFavorites(e) {
             e.target.textContent = "Add to Favorites ♡"
         })
     }
+}
+
+function setToLearnMoreFavorites(e) {
+    console.log(e.target);
+    // const beerIndex = e.target.attributes[2].textContent
+    // if (e.target.textContent === "Add to Favorites ♡") {
+    //     fetch(`http://localhost:3000/favorites/${beerIndex}`, {
+    //         method: 'PATCH',
+    //         body: JSON.stringify({
+    //             heart: true,
+    //         }),
+    //         headers: {
+    //             'Accept': 'application/json',
+    //             'Content-Type': 'application/json'
+    //         },
+    //     }).then(() => {
+    //         e.target.textContent = "Add to Favorites ♥"
+    //     })
+    // } else {
+    //     fetch(`http://localhost:3000/favorites/${beerIndex}`, {
+    //         method: 'PATCH',
+    //         body: JSON.stringify({
+    //             heart: false,
+    //         }),
+    //         headers: {
+    //             'Accept': 'application/json',
+    //             'Content-Type': 'application/json'
+    //         },
+    //     }).then(() => {
+    //         e.target.textContent = "Add to Favorites ♡"
+    //     })
+    // }
 }
 
 function loadNextPage(e) {
@@ -262,7 +292,3 @@ function getRandomBeer() {
 document.querySelector("#settings").addEventListener('click', () => {
     localStorage.setItem('color', 'green')
 })
-
-// get Favorites to work - show a list of our favorite beer after we have selected "add to favorites button"
-//filter - get random beer
-//settings button - pull up setting tab - be able to persist our visual changes
