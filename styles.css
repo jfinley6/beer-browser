@@ -172,7 +172,7 @@ button {
 }
 
 #browse:hover {
-  background-color: lightgreen;
+  background-color: lightgray;
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
   transition: all 0.35s ease-in-out;
   border-radius: 15px;
@@ -189,7 +189,7 @@ button {
 }
 
 #settings:hover {
-  background-color: lightgreen;
+  background-color: lightgray;
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
   transition: all 0.35s ease-in-out;
   border-radius: 15px;
@@ -206,7 +206,7 @@ button {
 }
 
 #favorites:hover {
-  background-color: lightgreen;
+  background-color: lightgray;
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
   transition: all 0.35s ease-in-out;
   border-radius: 15px;
