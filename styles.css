@@ -152,7 +152,6 @@ button {
   white-space: nowrap;
   display: flex;
   align-items: center;
-  margin-left: 10px;
   font-weight: bold;
   font-family: Georgia;
 }
@@ -415,4 +414,51 @@ li:hover {
 
 #favoritesList {
   padding: 0;
+}
+
+#settingsTab {
+  display: none;
+  width: 94%;
+  margin-top: 15px;
+  background-color: var(--content-background);
+  opacity: 0.95;
+  grid-template-columns: repeat(1fr, 2);
+  grid-template-rows: 0.5fr 0.5fr 1fr;
+  grid-template-areas:
+    "settingTitle settingTitle settingTitle settingTitle"
+    "colorSetting colorSetting lightDarkMode lightDarkMode"
+    "colorSetting colorSetting lightDarkMode lightDarkMode";
+}
+
+#settingsTitle {
+  grid-area: settingTitle;
+  display: flex;
+  justify-content: center;
+
+}
+
+#colorSetting {
+  grid-area: colorSetting;
+  display: grid;
+  grid-template-rows: 0.2fr 1fr;
+}
+
+#lightDarkMode {
+  grid-area: lightDarkMode;
+  grid-template-rows: 1fr 1fr;
+}
+
+h4 {
+  display: flex;
+  justify-content: center;
+}
+
+#colorWheel {
+  display: flex;
+  justify-content: center;
+}
+
+#lightDarkButton {
+  display: flex;
+  justify-content: center;
 }

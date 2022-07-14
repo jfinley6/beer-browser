@@ -234,7 +234,6 @@ function loadLearnMore(e) {
 
 function learnMoreBackButton(e, scrollPosition = 0) {
     const backButton = document.querySelector("#backButton")
-
     if (backButton.getAttribute("filter") === "abv" || backButton.getAttribute("filter") === "ibu" || backButton.getAttribute("filter") === "name") {
         callBeer()
     }
@@ -310,6 +309,7 @@ function loadPreviousPage(e) {
 }
 
 function changePageIndex() {
+    document.querySelector("#settingsTab").style.display = "none"
     document.querySelector("#favoritesTab").style.display = "none"
     document.querySelector("#backButton").style.display = "none"
     document.querySelector("#pageButtons").style.display = ""
@@ -345,8 +345,8 @@ function loadFavorites() {
             li.remove()
         })
     }
-    let arr = []
-    debugger
+
+    document.querySelector("#settingsTab").style.display = "none"
     document.querySelector("#beerBrowse").style.gridTemplateColumns = "1fr"
     document.querySelector("#favoritesTab").style.display = "flex"
     document.querySelector("#learnMore").style.display = "none"
@@ -450,9 +450,24 @@ function loadFavoriteDetails(e) {
         })
 }
 
-document.querySelector("#settings").addEventListener('click', () => {
-    localStorage.setItem('color', 'yellow')
-    let color = localStorage.getItem('color')
-    navBar.style.backgroundColor = color
-    buttons.style.backgroundColor = color
-})
+function loadSettings() {
+    document.querySelector("#pageButtons").style.display = "none"
+    document.querySelector("#filters").style.display = "none"
+    document.querySelector("#beerBrowse").style.overflowY = "hidden"
+    document.querySelector("#beerBrowse").style.gridTemplateColumns = "1fr"
+    document.querySelector("#favoritesTab").style.display = "none"
+    document.querySelector("#learnMore").style.display = "none"
+    document.querySelector("#settingsTab").style.display = "grid"
+    document.querySelector("#container").style.gridTemplateRows = "0.1fr 1fr"
+    beerContent = document.querySelectorAll(".beerContent")
+    beerContent.forEach(beer => {
+        beer.style.display = "none"
+    })
+}
+
+// document.querySelector("#settings").addEventListener('click', () => {
+//     localStorage.setItem('color', 'yellow')
+//     let color = localStorage.getItem('color')
+//     navBar.style.backgroundColor = color
+//     buttons.style.backgroundColor = color
+// })
