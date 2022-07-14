@@ -29,6 +29,7 @@ body {
   align-content: center;
   justify-items: center;
   opacity: 0.95;
+  font-family: Copperplate;
 }
 
 #filters {
@@ -323,6 +324,7 @@ button {
   align-items: center;
   background-color: lightgray;
   width: 80px;
+  font-weight: bold;
 }
 
 #topButton {
@@ -422,10 +424,6 @@ li {
   color: var(--content-text);
 }
 
-li:hover {
-  cursor: pointer;
-}
-
 #favoritesList {
   padding: 0;
 }
@@ -467,6 +465,7 @@ li:hover {
 h4 {
   display: flex;
   justify-content: center;
+  font-size: 1.4em;
 }
 
 #colorWheel {
@@ -518,4 +517,24 @@ input:checked + label:after {
 }
 label:active:after {
   width: 130px;
+}
+
+li:hover {
+  color: var(--button);
+  cursor: pointer;
+}
+
+li {
+  font-family: Rockwell;
+  font-size: 1.4em;
+}
+
+#colorSetting {
+  font-size: 1.4em;
+  font-family: Rockwell;
+}
+
+#lightDarkMode {
+  font-size: 1.4rem;
+  font-family: Rockwell;
 }

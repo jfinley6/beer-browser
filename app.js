@@ -374,6 +374,7 @@ function loadFavorites() {
         })
     }
 
+    document.querySelector("#beerBrowse").style.overflowY = "hidden"
     document.querySelector("#settingsTab").style.display = "none"
     document.querySelector("#beerBrowse").style.gridTemplateColumns = "1fr"
     document.querySelector("#favoritesTab").style.display = "flex"
