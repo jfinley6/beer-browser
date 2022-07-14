@@ -13,7 +13,7 @@ body {
   padding: 0;
   background-image: url(https://envato-shoebox-0.imgix.net/f309/08f0-c751-4da9-ba9f-62c7a94fd21f/_K4A7247.jpg?auto=compress%2Cformat&fit=max&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&markalign=center%2Cmiddle&markalpha=18&w=700&s=371111811ab3e03a5f6dbedd0969929f);
   background-size: cover;
-  background-position: 100px;
+  background-position: 0px;
 }
 
 #container {
@@ -140,6 +140,8 @@ button {
   color: var(--button);
   transition: all 0.35s ease-in-out;
   border-radius: 0 0 15px 15px;
+  font-size: 2em;
+  font-family: Copperplate;
 }
 
 .learnMore:hover {
@@ -303,11 +305,13 @@ button {
   background-color: lightgray;
   width: 100px;
   font-family: Copperplate;
+  transition: all 0.35s ease-in-out;
 }
 
 #previousButton:hover {
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
   border-radius: 15px;
+  transition: all 0.35s ease-in-out;
 }
 
 #nextButton {
@@ -315,11 +319,13 @@ button {
   width: 100px;
   font-family: Copperplate;
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+  transition: all 0.35s ease-in-out;
 }
 
 #nextButton:hover {
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
   border-radius: 15px;
+  transition: all 0.35s ease-in-out;
 }
 
 #pageIndex {
@@ -327,7 +333,7 @@ button {
   justify-content: center;
   align-items: center;
   background-color: lightgray;
-  width: 100px;
+  width: 125px;
   font-weight: bold;
   font-family: Copperplate;
   font-size: 1.2em;
