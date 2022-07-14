@@ -5,13 +5,32 @@ const navBar = document.querySelector("#navBar")
 const buttons = document.querySelector("#pageButtons")
 
 document.addEventListener("DOMContentLoaded", () => {
-    if (localStorage.getItem('colo') === null) {
-        navBar.style.backgroundColor = navBar.style.backgroundColor
-    } else {
-        navBar.style.backgroundColor = localStorage.getItem('color')
-    }
+    checkStorage()
     callBeer()
 })
+
+function checkStorage() {
+    if (localStorage.getItem('color') === null) {
+        navBar.style.backgroundColor = navBar.style.backgroundColor
+    } else {
+        let refreshColor = localStorage.getItem('color')
+        let colorWheel = document.querySelector("#colorWheel")
+        colorWheel.setAttribute('value', refreshColor)
+        document.documentElement.style.setProperty('--theme-background', refreshColor);
+    }
+    // if (localStorage.getItem('shade') === null) {
+    //     document.documentElement.style.setProperty('--content-text', 'white');
+    //     document.documentElement.style.setProperty('--content-background', '#424242')
+    // } else {
+    //     if (localStorage.getItem('shade') === "dark") {
+    //         document.documentElement.style.setProperty('--content-text', 'white');
+    //         document.documentElement.style.setProperty('--content-background', '#424242')
+    //     } else {
+    //         document.documentElement.style.setProperty('--content-text', 'black');
+    //         document.documentElement.style.setProperty('--content-background', 'white')
+    //     }
+    // }
+}
 
 function callBeer(page = 1) {
     const beerClass = document.querySelectorAll(".beerContent")
@@ -468,8 +487,9 @@ function loadSettings() {
 
 function changeHeaderColor(e) {
     let newColor = e.target.value
-    document.documentElement.style.setProperty('--theme-background', newColor);
 
+    document.documentElement.style.setProperty('--theme-background', newColor);
+    localStorage.setItem('color', newColor)
 }
 
 function changeLightDark(e) {
@@ -477,19 +497,12 @@ function changeLightDark(e) {
         document.documentElement.style.setProperty('--content-text', 'white');
         document.documentElement.style.setProperty('--content-background', '#424242')
         colorMode = 'dark'
-
+        localStorage.setItem('shade', "dark")
     } else {
         document.documentElement.style.setProperty('--content-text', 'black');
         document.documentElement.style.setProperty('--content-background', 'white')
         colorMode = 'light'
+        localStorage.setItem('shade', "light")
     }
-
 }
 
-
-// document.querySelector("#settings").addEventListener('click', () => {
-//     localStorage.setItem('color', 'yellow')
-//     let color = localStorage.getItem('color')
-//     navBar.style.backgroundColor = color
-//     buttons.style.backgroundColor = color
-// })
