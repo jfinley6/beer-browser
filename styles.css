@@ -401,6 +401,7 @@ button {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  color: var(--content-text)
 }
 
 li {
@@ -428,6 +429,7 @@ li:hover {
     "settingTitle settingTitle settingTitle settingTitle"
     "colorSetting colorSetting lightDarkMode lightDarkMode"
     "colorSetting colorSetting lightDarkMode lightDarkMode";
+    color: var(--content-text)
 }
 
 #settingsTitle {
@@ -479,7 +481,7 @@ label {
   text-indent: -9999px;
   width: 200px;
   height: 100px;
-  background: grey;
+  background: #bada55;
   display: block;
   border-radius: 100px;
   position: relative;
@@ -496,7 +498,7 @@ label:after {
   transition: 0.3s;
 }
 input:checked + label {
-  background: #BADA55;
+  background: rgb(68, 68, 68);
 }
 input:checked + label:after {
   left: calc(100% - 5px);
