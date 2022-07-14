@@ -471,6 +471,10 @@ function changeHeaderColor(e) {
 
 }
 
+function changeLightDark(e) {
+    console.log('hello')
+}
+
 
 // document.querySelector("#settings").addEventListener('click', () => {
 //     localStorage.setItem('color', 'yellow')
