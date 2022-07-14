@@ -1,20 +1,37 @@
+let scrollPosition = 0
 let pageNumber = 1
 let colorMode = "light"
 
 const navBar = document.querySelector("#navBar")
 const buttons = document.querySelector("#pageButtons")
+const contentArea = document.querySelector("#beerBrowse")
 
 document.addEventListener("DOMContentLoaded", () => {
     checkStorage()
     callBeer()
 })
 
+contentArea.addEventListener('scroll', function (event) {
+    if (contentArea.scrollTop === 0) {
+        document.querySelector("#topButton").style.display = "none"
+    }
+    else {
+        if (contentArea.scrollHeight - contentArea.scrollTop - contentArea.clientHeight < 800) {
+            document.querySelector("#topButton").style.display = "block"
+            document.querySelector("#topButton").style.visibility = "visible"
+        }
+        if (contentArea.scrollHeight - contentArea.scrollTop - contentArea.clientHeight > 1600) {
+            document.querySelector("#topButton").style.display = "none"
+        }
+    }
+
+});
+
 function checkStorage() {
     if (localStorage.getItem('color') === null) {
         navBar.style.backgroundColor = navBar.style.backgroundColor
     } else {
         let refreshColor = localStorage.getItem('color')
-        let colorWheel = document.querySelector("#colorWheel")
         document.documentElement.style.setProperty('--button', refreshColor)
         document.documentElement.style.setProperty('--theme-background', refreshColor);
     }
@@ -46,6 +63,7 @@ function searchByAbv(e) {
                     // document.querySelector("#backButton").style.display = "block" uncomment to add the back button 
                 })
             }
+            document.querySelector("#beerBrowse").scrollTop = 0;
             document.querySelector("#backButton").style.display = "block"
             document.querySelector("#backButton").setAttribute("filter", "abv")
             document.querySelector("#pageButtons").style.display = ""
@@ -74,6 +92,7 @@ function searchByIbu(e) {
                     // document.querySelector("#backButton").style.display = "block" uncomment to add the back button 
                 })
             }
+            document.querySelector("#beerBrowse").scrollTop = 0;
             document.querySelector("#backButton").style.display = "block"
             document.querySelector("#backButton").setAttribute("filter", "ibu")
             document.querySelector("#pageButtons").style.display = ""
@@ -149,6 +168,7 @@ function searchByName(e) {
                     // document.querySelector("#backButton").style.display = "block" uncomment to add the back button 
                 })
             }
+            document.querySelector("#beerBrowse").scrollTop = 0;
             document.querySelector("#backButton").style.display = "block"
             document.querySelector("#backButton").setAttribute("filter", "name")
             document.querySelector("#pageButtons").style.display = ""
@@ -435,6 +455,7 @@ function loadFavoriteDetails(e) {
 }
 
 function loadSettings() {
+
     document.querySelector("#pageButtons").style.display = "none"
     document.querySelector("#filters").style.display = "none"
     document.querySelector("#beerBrowse").style.overflowY = "hidden"
@@ -471,3 +492,7 @@ function changeLightDark(e) {
     }
 }
 
+function returnToTop() {
+    document.querySelector("#topButton").style.display = "none"
+    document.querySelector("#beerBrowse").scrollTop = 0
+}
