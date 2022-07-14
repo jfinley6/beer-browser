@@ -1,4 +1,5 @@
 let pageNumber = 1
+const colorMode = "light"
 
 const navBar = document.querySelector("#navBar")
 const buttons = document.querySelector("#pageButtons")
@@ -472,7 +473,16 @@ function changeHeaderColor(e) {
 }
 
 function changeLightDark(e) {
-    console.log('hello')
+    if(colorMode === "light"){
+        document.documentElement.style.setProperty('--content-text', 'white');
+    document.documentElement.style.setProperty('--content-background', 'black')
+    colorMode = 'dark'
+    } else {
+        document.documentElement.style.setProperty('--content-text', 'black');
+    document.documentElement.style.setProperty('--content-background', 'white')
+    colorMode='light'
+    }
+    
 }
 
 
