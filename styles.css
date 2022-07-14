@@ -151,12 +151,12 @@ button {
 
 #title {
   color: var(--title-text);
-  font-size: 1.75vw;
+  font-size: 1.85vw;
   white-space: nowrap;
   display: flex;
   align-items: center;
   font-weight: bold;
-  font-family: Georgia;
+  font-family: Copperplate;
 }
 
 #FIS {
@@ -299,7 +299,8 @@ button {
 
 #previousButton {
   background-color: lightgray;
-  width: 80px;
+  width: 100px;
+  font-family: Copperplate;
 }
 
 #previousButton:hover {
@@ -309,7 +310,8 @@ button {
 
 #nextButton {
   background-color: lightgray;
-  width: 80px;
+  width: 100px;
+  font-family: Copperplate;
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
 }
 
@@ -323,8 +325,10 @@ button {
   justify-content: center;
   align-items: center;
   background-color: lightgray;
-  width: 80px;
+  width: 100px;
   font-weight: bold;
+  font-family: Copperplate;
+  font-size: 1.2em;
 }
 
 #topButton {
@@ -336,6 +340,8 @@ button {
   width: 100px;
   color: var(--button);
   border: 2px solid black;
+  font-family: Copperplate;
+  font-weight: bold;
 }
 
 #backButton:hover {
@@ -371,6 +377,9 @@ button {
   width: 150px;
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
   transition: all 0.35s ease-in-out;
+  font-family: Copperplate;
+  font-size: 1.1em;
+  width: 175px;
 }
 #getRandomBeer:hover {
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
@@ -416,7 +425,7 @@ button {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  color: var(--content-text)
+  color: var(--content-text);
 }
 
 li {
@@ -440,14 +449,13 @@ li {
     "settingTitle settingTitle settingTitle settingTitle"
     "colorSetting colorSetting lightDarkMode lightDarkMode"
     "colorSetting colorSetting lightDarkMode lightDarkMode";
-    color: var(--content-text)
+  color: var(--content-text);
 }
 
 #settingsTitle {
   grid-area: settingTitle;
   display: flex;
   justify-content: center;
-
 }
 
 #colorSetting {
@@ -482,7 +490,7 @@ h4 {
   width: 35%;
   height: 100px;
 }
-input[type=checkbox]{
+input[type="checkbox"] {
   height: 0;
   width: 0;
   visibility: hidden;
@@ -498,7 +506,7 @@ label {
   position: relative;
 }
 label:after {
-  content: '';
+  content: "";
   position: absolute;
   top: 5px;
   left: 5px;
@@ -527,6 +535,7 @@ li:hover {
 li {
   font-family: Rockwell;
   font-size: 1.4em;
+  margin-top: 10px;
 }
 
 #colorSetting {
@@ -537,4 +546,9 @@ li {
 #lightDarkMode {
   font-size: 1.4rem;
   font-family: Rockwell;
+}
+
+form {
+  font-family: Copperplate;
+  font-size: 0.9em;
 }
