@@ -53,6 +53,9 @@ function callBeer(page = 1) {
 function searchByAbv(e) {
     e.preventDefault()
     let searchInput = document.querySelector("#search-bar").value
+    if (searchInput === "") {
+        return
+    }
     fetch(`https://api.punkapi.com/v2/beers?abv_gt=${searchInput}`)
         .then(res => res.json())
         .then(beersArr => {
@@ -82,6 +85,9 @@ function searchByAbv(e) {
 function searchByIbu(e) {
     e.preventDefault()
     let searchInput = document.querySelector("#searchIbu-bar").value
+    if (searchInput === "") {
+        return
+    }
     fetch(`https://api.punkapi.com/v2/beers?ibu_gt=${searchInput}`)
         .then(res => res.json())
         .then(beersArr => {
@@ -158,14 +164,21 @@ function getRandomBeer() {
 function searchByName(e) {
     e.preventDefault()
     let searchInput = document.querySelector("#searchName-bar").value
+    if (searchInput === "") {
+        return
+    }
     fetch(`https://api.punkapi.com/v2/beers?beer_name=${searchInput}`)
         .then(res => res.json())
         .then(beersArr => {
+            if (beersArr.length === 0) {
+                document.querySelector("#searchName-form").reset()
+                alert("No Names Found")
+                return
+            }
             const beerClass = document.querySelectorAll(".beerContent")
             if (beerClass.length > 0) {
                 beerClass.forEach(beer => {
                     beer.remove()
-                    // document.querySelector("#backButton").style.display = "block" uncomment to add the back button 
                 })
             }
             document.querySelector("#beerBrowse").scrollTop = 0;
@@ -261,6 +274,7 @@ function loadLearnMore(e) {
 }
 
 function learnMoreBackButton(e, scrollPosition = 0) {
+    document.querySelector("#beerBrowse").style.scrollBehavior = "auto"
     const backButton = document.querySelector("#backButton")
     if (backButton.getAttribute("filter") === "abv" || backButton.getAttribute("filter") === "ibu" || backButton.getAttribute("filter") === "name") {
         callBeer()
@@ -281,6 +295,7 @@ function learnMoreBackButton(e, scrollPosition = 0) {
         beer.style.display = "grid"
     })
     beerBrowse.scrollTo(0, scrollPosition)
+    document.querySelector("#beerBrowse").style.scrollBehavior = "smooth"
 }
 
 function setToLearnMoreFavorites(e) {
@@ -374,6 +389,7 @@ function loadFavorites() {
         })
     }
 
+    document.querySelector("#beerBrowse").style.scrollBehavior = "smooth"
     document.querySelector("#beerBrowse").style.overflowY = "hidden"
     document.querySelector("#settingsTab").style.display = "none"
     document.querySelector("#beerBrowse").style.gridTemplateColumns = "1fr"
@@ -457,6 +473,7 @@ function loadFavoriteDetails(e) {
 
 function loadSettings() {
 
+    document.querySelector("#beerBrowse").style.scrollBehavior = "smooth"
     document.querySelector("#pageButtons").style.display = "none"
     document.querySelector("#filters").style.display = "none"
     document.querySelector("#beerBrowse").style.overflowY = "hidden"
