@@ -475,7 +475,7 @@ function changeHeaderColor(e) {
 function changeLightDark(e) {
     if (colorMode === "light") {
         document.documentElement.style.setProperty('--content-text', 'white');
-        document.documentElement.style.setProperty('--content-background', '#808080')
+        document.documentElement.style.setProperty('--content-background', '#424242')
         colorMode = 'dark'
 
     } else {
