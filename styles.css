@@ -295,7 +295,7 @@ button {
 }
 
 #previousButton {
-  background-color: pink;
+  background-color: lightgray;
   width: 80px;
 }
 
@@ -305,7 +305,7 @@ button {
 }
 
 #nextButton {
-  background-color: pink;
+  background-color: lightgray;
   width: 80px;
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
 }
@@ -319,7 +319,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: pink;
+  background-color: lightgray;
   width: 80px;
 }
 
@@ -342,7 +342,7 @@ button {
 
 #search-bar {
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
-  background-color: pink;
+  background-color: lightgray;
   width: 195px;
 }
 
@@ -352,7 +352,7 @@ button {
 }
 
 #getRandomBeer {
-  background-color: pink;
+  background-color: lightgray;
   width: 150px;
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
   transition: all 0.35s ease-in-out;
@@ -364,7 +364,7 @@ button {
 
 #searchIbu-bar {
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
-  background-color: pink;
+  background-color: lightgray;
   width: 195px;
 }
 
@@ -375,7 +375,7 @@ button {
 
 #searchName-bar {
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
-  background-color: pink;
+  background-color: lightgray;
   width: 195px;
 }
 
