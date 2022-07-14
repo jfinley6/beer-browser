@@ -1,3 +1,4 @@
+let scrollPosition = 0
 let pageNumber = 1
 let colorMode = "light"
 
