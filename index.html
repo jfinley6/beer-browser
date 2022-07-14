@@ -21,13 +21,15 @@
             <div id="navBar">
                 <div id="titleSection">
                     <div id="logo">
-                        <image id="FIS" src="./Images/glass_of_beer_on_a_transparent_background_by_prussiaart_dcybyhy-fullview.png"></image>
+                        <image id="FIS"
+                            src="./Images/glass_of_beer_on_a_transparent_background_by_prussiaart_dcybyhy-fullview.png">
+                        </image>
                     </div>
                     <div id="title">John & Kelan's Beer Browser</div>
                 </div>
                 <div id="browse" onclick="changePageIndex()">Browse All</div>
                 <div id="favorites" onclick="loadFavorites()">Favorites</div>
-                <div id="settings">Settings</div>
+                <div id="settings" onclick="loadSettings()">Settings</div>
             </div>
             <div id="filters">
 
@@ -47,7 +49,7 @@
                 <button id="getRandomBeer" onclick="getRandomBeer(event)"> Get Random Beer</button>
             </div>
             <div id="pageButtons">
-                <button id="backButton" onclick="learnMoreBackButton(event)">
+                <button id="backButton" onclick="learnMoreBackButton(event, scrollPosition)">
                     Back
                 </button>
                 <button id="previousButton" onclick="loadPreviousPage(event)">
@@ -66,6 +68,19 @@
                     <ul id="favoritesList">
 
                     </ul>
+                </div>
+                <div id="settingsTab">
+                    <h2 id="settingsTitle">Settings</h2>
+                    <div id="colorSetting">
+                        <h4>Change Header Color</h4>
+                        <div id="colorWheel"><input type="color" id="favcolor" name="favcolor" value="#1ab31a" onchange="changeHeaderColor(event)"></div>
+                    </div>
+                    <div id="lightDarkMode">
+                        <h4>Light/Dark Mode</h4>
+                        <div id="lightDarkButton">
+                            <input type="checkbox" id="switch" onchange="changeLightDark(event)"/><label for="switch"></label>
+                        </div>
+                    </div>
                 </div>
                 <div id="learnMore">
                     <div id="learnMoreImage">

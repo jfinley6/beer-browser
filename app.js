@@ -1,16 +1,36 @@
 let pageNumber = 1
+let colorMode = "light"
 
 const navBar = document.querySelector("#navBar")
 const buttons = document.querySelector("#pageButtons")
 
 document.addEventListener("DOMContentLoaded", () => {
-    if (localStorage.getItem('colo') === null) {
-        navBar.style.backgroundColor = navBar.style.backgroundColor
-    } else {
-        navBar.style.backgroundColor = localStorage.getItem('color')
-    }
+    checkStorage()
     callBeer()
 })
+
+function checkStorage() {
+    if (localStorage.getItem('color') === null) {
+        navBar.style.backgroundColor = navBar.style.backgroundColor
+    } else {
+        let refreshColor = localStorage.getItem('color')
+        let colorWheel = document.querySelector("#colorWheel")
+        colorWheel.setAttribute('value', refreshColor)
+        document.documentElement.style.setProperty('--theme-background', refreshColor);
+    }
+    // if (localStorage.getItem('shade') === null) {
+    //     document.documentElement.style.setProperty('--content-text', 'white');
+    //     document.documentElement.style.setProperty('--content-background', '#424242')
+    // } else {
+    //     if (localStorage.getItem('shade') === "dark") {
+    //         document.documentElement.style.setProperty('--content-text', 'white');
+    //         document.documentElement.style.setProperty('--content-background', '#424242')
+    //     } else {
+    //         document.documentElement.style.setProperty('--content-text', 'black');
+    //         document.documentElement.style.setProperty('--content-background', 'white')
+    //     }
+    // }
+}
 
 function callBeer(page = 1) {
     const beerClass = document.querySelectorAll(".beerContent")
@@ -234,7 +254,6 @@ function loadLearnMore(e) {
 
 function learnMoreBackButton(e, scrollPosition = 0) {
     const backButton = document.querySelector("#backButton")
-
     if (backButton.getAttribute("filter") === "abv" || backButton.getAttribute("filter") === "ibu" || backButton.getAttribute("filter") === "name") {
         callBeer()
     }
@@ -310,6 +329,7 @@ function loadPreviousPage(e) {
 }
 
 function changePageIndex() {
+    document.querySelector("#settingsTab").style.display = "none"
     document.querySelector("#favoritesTab").style.display = "none"
     document.querySelector("#backButton").style.display = "none"
     document.querySelector("#pageButtons").style.display = ""
@@ -345,8 +365,8 @@ function loadFavorites() {
             li.remove()
         })
     }
-    let arr = []
-    debugger
+
+    document.querySelector("#settingsTab").style.display = "none"
     document.querySelector("#beerBrowse").style.gridTemplateColumns = "1fr"
     document.querySelector("#favoritesTab").style.display = "flex"
     document.querySelector("#learnMore").style.display = "none"
@@ -450,9 +470,39 @@ function loadFavoriteDetails(e) {
         })
 }
 
-document.querySelector("#settings").addEventListener('click', () => {
-    localStorage.setItem('color', 'yellow')
-    let color = localStorage.getItem('color')
-    navBar.style.backgroundColor = color
-    buttons.style.backgroundColor = color
-})
+function loadSettings() {
+    document.querySelector("#pageButtons").style.display = "none"
+    document.querySelector("#filters").style.display = "none"
+    document.querySelector("#beerBrowse").style.overflowY = "hidden"
+    document.querySelector("#beerBrowse").style.gridTemplateColumns = "1fr"
+    document.querySelector("#favoritesTab").style.display = "none"
+    document.querySelector("#learnMore").style.display = "none"
+    document.querySelector("#settingsTab").style.display = "grid"
+    document.querySelector("#container").style.gridTemplateRows = "0.1fr 1fr"
+    beerContent = document.querySelectorAll(".beerContent")
+    beerContent.forEach(beer => {
+        beer.style.display = "none"
+    })
+}
+
+function changeHeaderColor(e) {
+    let newColor = e.target.value
+
+    document.documentElement.style.setProperty('--theme-background', newColor);
+    localStorage.setItem('color', newColor)
+}
+
+function changeLightDark(e) {
+    if (colorMode === "light") {
+        document.documentElement.style.setProperty('--content-text', 'white');
+        document.documentElement.style.setProperty('--content-background', '#424242')
+        colorMode = 'dark'
+        localStorage.setItem('shade', "dark")
+    } else {
+        document.documentElement.style.setProperty('--content-text', 'black');
+        document.documentElement.style.setProperty('--content-background', 'white')
+        colorMode = 'light'
+        localStorage.setItem('shade', "light")
+    }
+}
+

@@ -152,7 +152,6 @@ button {
   white-space: nowrap;
   display: flex;
   align-items: center;
-  margin-left: 10px;
   font-weight: bold;
   font-family: Georgia;
 }
@@ -173,7 +172,7 @@ button {
 }
 
 #browse:hover {
-  background-color: lightgreen;
+  background-color: lightgray;
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
   transition: all 0.35s ease-in-out;
   border-radius: 15px;
@@ -190,7 +189,7 @@ button {
 }
 
 #settings:hover {
-  background-color: lightgreen;
+  background-color: lightgray;
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
   transition: all 0.35s ease-in-out;
   border-radius: 15px;
@@ -207,7 +206,7 @@ button {
 }
 
 #favorites:hover {
-  background-color: lightgreen;
+  background-color: lightgray;
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
   transition: all 0.35s ease-in-out;
   border-radius: 15px;
@@ -296,7 +295,7 @@ button {
 }
 
 #previousButton {
-  background-color: pink;
+  background-color: lightgray;
   width: 80px;
 }
 
@@ -306,7 +305,7 @@ button {
 }
 
 #nextButton {
-  background-color: pink;
+  background-color: lightgray;
   width: 80px;
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
 }
@@ -320,7 +319,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: pink;
+  background-color: lightgray;
   width: 80px;
 }
 
@@ -343,7 +342,7 @@ button {
 
 #search-bar {
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
-  background-color: pink;
+  background-color: lightgray;
   width: 195px;
 }
 
@@ -353,7 +352,7 @@ button {
 }
 
 #getRandomBeer {
-  background-color: pink;
+  background-color: lightgray;
   width: 150px;
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
   transition: all 0.35s ease-in-out;
@@ -365,7 +364,7 @@ button {
 
 #searchIbu-bar {
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
-  background-color: pink;
+  background-color: lightgray;
   width: 195px;
 }
 
@@ -376,7 +375,7 @@ button {
 
 #searchName-bar {
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
-  background-color: pink;
+  background-color: lightgray;
   width: 195px;
 }
 
@@ -402,6 +401,7 @@ button {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  color: var(--content-text)
 }
 
 li {
@@ -415,4 +415,94 @@ li:hover {
 
 #favoritesList {
   padding: 0;
+}
+
+#settingsTab {
+  display: none;
+  width: 94%;
+  margin-top: 15px;
+  background-color: var(--content-background);
+  opacity: 0.95;
+  grid-template-columns: repeat(1fr, 2);
+  grid-template-rows: 0.5fr 0.5fr 1fr;
+  grid-template-areas:
+    "settingTitle settingTitle settingTitle settingTitle"
+    "colorSetting colorSetting lightDarkMode lightDarkMode"
+    "colorSetting colorSetting lightDarkMode lightDarkMode";
+    color: var(--content-text)
+}
+
+#settingsTitle {
+  grid-area: settingTitle;
+  display: flex;
+  justify-content: center;
+
+}
+
+#colorSetting {
+  grid-area: colorSetting;
+  display: grid;
+  grid-template-rows: 0.2fr 1fr;
+}
+
+#lightDarkMode {
+  grid-area: lightDarkMode;
+  display: grid;
+  grid-template-rows: 0.2fr 1fr;
+}
+
+h4 {
+  display: flex;
+  justify-content: center;
+}
+
+#colorWheel {
+  display: flex;
+  justify-content: center;
+}
+
+#lightDarkButton {
+  display: flex;
+  justify-content: center;
+}
+
+#favcolor {
+  width: 35%;
+  height: 100px;
+}
+input[type=checkbox]{
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 200px;
+  height: 100px;
+  background: #d2d2d2;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+label:after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 90px;
+  height: 90px;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+input:checked + label {
+  background: rgb(35, 35, 35);
+}
+input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+label:active:after {
+  width: 130px;
 }
