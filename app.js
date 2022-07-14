@@ -15,21 +15,9 @@ function checkStorage() {
     } else {
         let refreshColor = localStorage.getItem('color')
         let colorWheel = document.querySelector("#colorWheel")
-        colorWheel.setAttribute('value', refreshColor)
+        document.documentElement.style.setProperty('--button', refreshColor)
         document.documentElement.style.setProperty('--theme-background', refreshColor);
     }
-    // if (localStorage.getItem('shade') === null) {
-    //     document.documentElement.style.setProperty('--content-text', 'white');
-    //     document.documentElement.style.setProperty('--content-background', '#424242')
-    // } else {
-    //     if (localStorage.getItem('shade') === "dark") {
-    //         document.documentElement.style.setProperty('--content-text', 'white');
-    //         document.documentElement.style.setProperty('--content-background', '#424242')
-    //     } else {
-    //         document.documentElement.style.setProperty('--content-text', 'black');
-    //         document.documentElement.style.setProperty('--content-background', 'white')
-    //     }
-    // }
 }
 
 function callBeer(page = 1) {
@@ -401,31 +389,7 @@ function loadFavorites() {
                         li.setAttribute("index", favorite.id)
                         li.setAttribute("onclick", "loadFavoriteDetails(event)")
                     })
-                    // arr.push(li)
                 })
-            // for (i = 0; i < datas.length; i++) {
-            //     let favoritesArray = []
-            //     if (datas[i].heart === true) {
-            //         fetch(`https://api.punkapi.com/v2/beers/${datas[i].id}`)
-            //             .then(res => res.json())
-            //             .then(data => {
-            //                 favoritesArray.push(data)
-            //                 const favoritesList = document.querySelector("#favoritesList")
-            //                 const li = document.createElement("li")
-            //                 li.classList.add("favoriteLi")
-            //                 li.textContent = data[0].name
-            //                 favoritesList.append(li)
-            //                 li.setAttribute("index", data[0].id)
-            //                 li.setAttribute("onclick", "loadFavoriteDetails(event)")
-            //                 // arr.push(li)
-            //             })
-            //     }
-            // }
-            // let list = document.querySelector('#favoritesList');
-            // let orderedLIs = arr.sort((a, b) =>
-            //     a.textContent.localeCompare(b.textContent)
-            // );
-
         })
 }
 
@@ -488,6 +452,7 @@ function loadSettings() {
 function changeHeaderColor(e) {
     let newColor = e.target.value
 
+    document.documentElement.style.setProperty('--button', newColor)
     document.documentElement.style.setProperty('--theme-background', newColor);
     localStorage.setItem('color', newColor)
 }
