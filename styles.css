@@ -463,3 +463,8 @@ h4 {
   display: flex;
   justify-content: center;
 }
+
+#favcolor {
+  width: 25%;
+  height: 20%;
+}

@@ -465,6 +465,13 @@ function loadSettings() {
     })
 }
 
+function changeHeaderColor(e) {
+    let newColor = e.target.value
+    document.documentElement.style.setProperty('--theme-background', newColor);
+
+}
+
+
 // document.querySelector("#settings").addEventListener('click', () => {
 //     localStorage.setItem('color', 'yellow')
 //     let color = localStorage.getItem('color')
