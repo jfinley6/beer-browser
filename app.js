@@ -4,11 +4,21 @@ let colorMode = "light"
 
 const navBar = document.querySelector("#navBar")
 const buttons = document.querySelector("#pageButtons")
+const contentArea = document.querySelector("#beerBrowse")
 
 document.addEventListener("DOMContentLoaded", () => {
     checkStorage()
     callBeer()
 })
+
+contentArea.addEventListener('scroll', function (event) {
+    if (contentArea.scrollHeight - contentArea.scrollTop - contentArea.clientHeight < 800) {
+        document.querySelector("#topButton").style.display = "block"
+    }
+    if (contentArea.scrollHeight - contentArea.scrollTop - contentArea.clientHeight >1600) {
+        document.querySelector("#topButton").style.display = "none"
+    }
+});
 
 function checkStorage() {
     if (localStorage.getItem('color') === null) {
@@ -472,3 +482,7 @@ function changeLightDark(e) {
     }
 }
 
+function returnToTop() {
+    document.querySelector("#topButton").style.display = "none"
+    document.querySelector("#beerBrowse").scrollTop = 0
+}
