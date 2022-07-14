@@ -434,6 +434,7 @@ button {
   align-items: center;
   text-align: center;
   color: var(--content-text);
+  overflow-y: scroll;
 }
 
 li {
