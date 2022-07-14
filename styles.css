@@ -126,7 +126,6 @@ button {
   background-color: var(--content-background);
   color: var(--button);
   transition: all 0.35s ease-in-out;
-  border-radius: 0 0 0 15px;
 }
 
 .favorite:hover {
@@ -295,6 +294,9 @@ button {
 #backButton {
   display: none;
   color: var(--button);
+  font-family: Copperplate;
+  font-size: 1.2em;
+  width: 10vw;
 }
 
 #previousButton {
@@ -421,7 +423,7 @@ button {
   background-color: var(--content-background);
   width: 94%;
   margin-top: 15px;
-  opacity: 0.95;
+  opacity: 0.9;
   flex-direction: column;
   align-items: center;
   text-align: center;
@@ -442,7 +444,7 @@ li {
   width: 94%;
   margin-top: 15px;
   background-color: var(--content-background);
-  opacity: 0.95;
+  opacity: 0.9;
   grid-template-columns: repeat(1fr, 2);
   grid-template-rows: 0.5fr 0.5fr 1fr;
   grid-template-areas:
