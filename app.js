@@ -153,7 +153,7 @@ function getRandomBeer() {
             beerContent.forEach(beer => {
                 beer.style.display = "none"
             })
-            document.querySelector("#learnMoreName").innerText = `Name: ${randomBeer[0].name}`
+            document.querySelector("#learnMoreName").innerText = `${randomBeer[0].name}`
             document.querySelector("#learnMoreIbu").innerText = `IBU: ${randomBeer[0].ibu}`
             document.querySelector("#learnMoreAbv").innerText = `ABV: ${randomBeer[0].abv}`
             document.querySelector("#learnMoreDescription").innerText = randomBeer[0].description
@@ -162,6 +162,7 @@ function getRandomBeer() {
             document.querySelector("#addToFavorites").setAttribute("index", randomBeer[0].id)
             if (randomBeer[0].image_url === null) {
                 document.querySelector("#image").src = "https://images.punkapi.com/v2/keg.png"
+                console.log("hello");
             } else {
                 document.querySelector("#image").src = randomBeer[0].image_url
             }
@@ -170,7 +171,7 @@ function getRandomBeer() {
                 .then(res => res.json())
                 .then(favoriteData => {
                     if (favoriteData.heart === true) {
-                        document.querySelector("#favoriteButton").textContent = "Add to Favorites ♥"
+                        document.querySelector("#favoriteButton").textContent = "Remove From Favorites ♥"
                     } else {
                         document.querySelector("#favoriteButton").textContent = "Add to Favorites ♡"
                     }
@@ -250,6 +251,7 @@ function loadLearnMore(e) {
     fetch(`https://api.punkapi.com/v2/beers/${beerIndex}`)
         .then(res => res.json())
         .then(data => {
+            console.log(data[0]);
             document.querySelector("#pageButtons").style.display = ""
             document.querySelector("#backButton").style.display = "block"
             document.querySelector("#nextButton").style.display = "none"
@@ -267,7 +269,11 @@ function loadLearnMore(e) {
             beerContent.forEach(beer => {
                 beer.style.display = "none"
             })
-            document.querySelector("#image").src = data[0].image_url
+            if (data[0].image_url === null) {
+                document.querySelector("#image").src = "https://images.punkapi.com/v2/keg.png"
+            } else {
+                document.querySelector("#image").src = data[0].image_url
+            }
             document.querySelector("#learnMoreName").innerText = `${data[0].name}`
             document.querySelector("#learnMoreIbu").innerText = `IBU: ${data[0].ibu}`
             document.querySelector("#learnMoreAbv").innerText = `ABV: ${data[0].abv}`
@@ -280,7 +286,7 @@ function loadLearnMore(e) {
                 .then(res => res.json())
                 .then(favoriteData => {
                     if (favoriteData.heart === true) {
-                        document.querySelector("#favoriteButton").textContent = "Add to Favorites ♥"
+                        document.querySelector("#favoriteButton").textContent = "Remove From Favorites ♥"
                     } else {
                         document.querySelector("#favoriteButton").textContent = "Add to Favorites ♡"
                     }
@@ -329,7 +335,7 @@ function setToLearnMoreFavorites(e) {
                 'Content-Type': 'application/json'
             },
         }).then(() => {
-            e.target.textContent = "Add to Favorites ♥"
+            e.target.textContent = "Remove From Favorites ♥"
         })
     } else {
         fetch(`http://localhost:3000/favorites/${beerIndex}`, {
@@ -467,7 +473,11 @@ function loadFavoriteDetails(e) {
             beerContent.forEach(beer => {
                 beer.style.display = "none"
             })
-            document.querySelector("#image").src = data[0].image_url
+            if (data[0].image_url === null) {
+                document.querySelector("#image").src = "https://images.punkapi.com/v2/keg.png"
+            } else {
+                document.querySelector("#image").src = data[0].image_url
+            }
             document.querySelector("#learnMoreName").innerText = `Name: ${data[0].name}`
             document.querySelector("#learnMoreIbu").innerText = `IBU: ${data[0].ibu}`
             document.querySelector("#learnMoreAbv").innerText = `ABV: ${data[0].abv}`
@@ -480,7 +490,7 @@ function loadFavoriteDetails(e) {
                 .then(res => res.json())
                 .then(favoriteData => {
                     if (favoriteData.heart === true) {
-                        document.querySelector("#favoriteButton").textContent = "Add to Favorites ♥"
+                        document.querySelector("#favoriteButton").textContent = "Remove From Favorites ♥"
                     } else {
                         document.querySelector("#favoriteButton").textContent = "Add to Favorites ♡"
                     }

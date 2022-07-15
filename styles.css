@@ -45,7 +45,7 @@ body {
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   padding-bottom: 10px;
-  overflow-y: scroll;
+  overflow-y: auto;
   width: 100vw;
   scroll-behavior: smooth;
 }
@@ -187,6 +187,7 @@ button {
   transition: all 0.35s ease-in-out;
   border-radius: 15px;
 }
+
 
 #settings {
   display: flex;
@@ -383,7 +384,7 @@ button {
 }
 
 #image {
-  height: 100px;
+  height: 125px;
   width: auto;
   margin-top: 10px;
 }
@@ -461,7 +462,8 @@ button {
   align-items: center;
   text-align: center;
   color: var(--content-text);
-  overflow-y: scroll;
+  overflow-y: auto;
+  border-radius: 15px;
 }
 
 li {
