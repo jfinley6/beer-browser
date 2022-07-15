@@ -59,6 +59,11 @@ function searchByAbv(e) {
     fetch(`https://api.punkapi.com/v2/beers?abv_gt=${searchInput}`)
         .then(res => res.json())
         .then(beersArr => {
+            if (beersArr.statusCode === 400) {
+                document.querySelector("#search-form").reset()
+                alert("That's not a number!")
+                return
+            }
             const beerClass = document.querySelectorAll(".beerContent")
             if (beerClass.length > 0) {
                 beerClass.forEach(beer => {
@@ -91,6 +96,11 @@ function searchByIbu(e) {
     fetch(`https://api.punkapi.com/v2/beers?ibu_gt=${searchInput}`)
         .then(res => res.json())
         .then(beersArr => {
+            if (beersArr.statusCode === 400) {
+                document.querySelector("#searchIbu-form").reset()
+                alert("That's not a number!")
+                return
+            }
             const beerClass = document.querySelectorAll(".beerContent")
             if (beerClass.length > 0) {
                 beerClass.forEach(beer => {
