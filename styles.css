@@ -236,6 +236,9 @@ button {
   opacity: 0.9;
   display: flex;
   justify-content: center;
+  font-weight: bold;
+  font-family: Copperplate;
+  font-size: 2em;
 }
 
 #learnMoreIbu {
@@ -245,6 +248,7 @@ button {
   opacity: 0.9;
   display: flex;
   justify-content: center;
+  font-weight: bold;
 }
 
 #learnMoreAbv {
@@ -254,6 +258,7 @@ button {
   opacity: 0.9;
   display: flex;
   justify-content: center;
+  font-weight: bold;
 }
 
 #learnMoreImage {
@@ -262,6 +267,7 @@ button {
   opacity: 0.9;
   display: flex;
   justify-content: center;
+  border-radius: 15px 15px 0 0;
 }
 
 #learnMoreDescription {
@@ -271,6 +277,10 @@ button {
   opacity: 0.9;
   justify-content: center;
   display: flex;
+  text-align: center;
+  padding-bottom: 15px;
+  padding-top: 10px;
+  font-weight: bold;
 }
 
 #learnMoreFoodPairings {
@@ -280,6 +290,7 @@ button {
   opacity: 0.9;
   display: flex;
   justify-content: center;
+  font-weight: bold;
 }
 
 #learnMoreFirstBrewed {
@@ -289,6 +300,8 @@ button {
   opacity: 0.9;
   display: flex;
   justify-content: center;
+  font-weight: bold;
+  padding-bottom: 10px;
 }
 
 #learnMoreFavorites {
@@ -297,6 +310,13 @@ button {
   opacity: 0.9;
   display: flex;
   justify-content: center;
+}
+
+#favoriteButton {
+  color: var(--button);
+  width: 20%;
+  background-color: white;
+  font-size: 1.2em;
 }
 
 #backButton {
@@ -373,6 +393,7 @@ button {
   color: var(--button);
   margin-left: auto;
   margin-right: auto;
+  border-radius: 0 0 15px 15px;
 }
 
 #search-bar {

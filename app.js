@@ -5,6 +5,7 @@ let colorMode = "light"
 const navBar = document.querySelector("#navBar")
 const buttons = document.querySelector("#pageButtons")
 const contentArea = document.querySelector("#beerBrowse")
+const checkBox = document.querySelector("#checkbox")
 
 document.addEventListener("DOMContentLoaded", () => {
     checkStorage()
@@ -35,6 +36,12 @@ function checkStorage() {
         document.documentElement.style.setProperty('--button', refreshColor)
         document.documentElement.style.setProperty('--theme-background', refreshColor);
     }
+    if (localStorage.getItem('shade') === "dark") {
+        document.querySelector("#switch").click()
+    } else {
+        return
+    }
+  
 }
 
 function callBeer(page = 1) {
@@ -59,6 +66,7 @@ function searchByAbv(e) {
     fetch(`https://api.punkapi.com/v2/beers?abv_gt=${searchInput}`)
         .then(res => res.json())
         .then(beersArr => {
+            console.log(beersArr);
             if (beersArr.statusCode === 400) {
                 document.querySelector("#search-form").reset()
                 alert("That's not a number!")
@@ -260,7 +268,7 @@ function loadLearnMore(e) {
                 beer.style.display = "none"
             })
             document.querySelector("#image").src = data[0].image_url
-            document.querySelector("#learnMoreName").innerText = `Name: ${data[0].name}`
+            document.querySelector("#learnMoreName").innerText = `${data[0].name}`
             document.querySelector("#learnMoreIbu").innerText = `IBU: ${data[0].ibu}`
             document.querySelector("#learnMoreAbv").innerText = `ABV: ${data[0].abv}`
             document.querySelector("#learnMoreDescription").innerText = data[0].description
