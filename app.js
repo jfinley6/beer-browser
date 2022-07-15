@@ -204,7 +204,7 @@ function renderBeer(beerArr) {
         document.querySelector("#beerBrowse").appendChild(beerContent);
         let name = document.createElement("div")
         name.classList.add("name")
-        name.innerHTML = `Name:<br><br>${beer.name}`
+        name.textContent = beer.name
         let ibu = document.createElement("div")
         ibu.classList.add("ibu")
         ibu.innerHTML = `IBU:<br><br>${beer.ibu}`
@@ -213,7 +213,7 @@ function renderBeer(beerArr) {
         abv.innerHTML = `ABV:<br><br>${beer.abv}%`
         let tagLine = document.createElement("div")
         tagLine.classList.add("tagLine")
-        tagLine.innerHTML = `Tagline:<br><br>'${beer.tagline}'`
+        tagLine.innerHTML = `<i>"${beer.tagline}"</i>`
 
         let learnMore = document.createElement("button")
         learnMore.setAttribute("beerIndex", beer.id)
