@@ -46,7 +46,7 @@
                     <input type="submit" value='Search'>
                 </form>
 
-                <button id="getRandomBeer" onclick="getRandomBeer(event)"> Get Random Beer</button>
+                <button id="getRandomBeer" onclick="getRandomBeer(event)">Random Beer</button>
             </div>
             <div id="pageButtons">
                 <button id="backButton" onclick="learnMoreBackButton(event, scrollPosition)">
@@ -59,28 +59,31 @@
                 <button id="nextButton" onclick="loadNextPage(event)">
                     Next
                 </button>
-                
+
 
             </div>
 
             <div id="beerBrowse">
                 <button id="topButton" onclick="returnToTop()">Return to Top</button>
                 <div id="favoritesTab">
-                    <h2>Favorites</h2>
+                    <h2 style="font-family: Copperplate; text-decoration: underline; font-size: 2.5em">Favorites</h2>
                     <ul id="favoritesList">
 
                     </ul>
                 </div>
                 <div id="settingsTab">
-                    <h2 id="settingsTitle">Settings</h2>
+                    <h2 id="settingsTitle"
+                        style="font-family: Copperplate; text-decoration: underline; font-size: 2.5em">Settings</h2>
                     <div id="colorSetting">
-                        <h4>Change Header Color</h4>
-                        <div id="colorWheel"><input type="color" id="favcolor" name="favcolor" value="#1ab31a" onchange="changeHeaderColor(event)"></div>
+                        <h4 style="font-size: 1.4em">Change Header Color</h4>
+                        <div id="colorWheel"><input type="color" id="favcolor" name="favcolor" value="#1ab31a"
+                                onchange="changeHeaderColor(event)"></div>
                     </div>
                     <div id="lightDarkMode">
-                        <h4>Light/Dark Mode</h4>
+                        <h4 style="font-size: 1.4em">Light/Dark Mode</h4>
                         <div id="lightDarkButton">
-                            <input type="checkbox" id="switch" onchange="changeLightDark(event)"/><label for="switch"></label>
+                            <input type="checkbox" id="switch" onchange="changeLightDark(event)"/><label
+                                for="switch"></label>
                         </div>
                     </div>
                 </div>
@@ -89,14 +92,13 @@
                         <image id="image"></image>
                     </div>
                     <div id="learnMoreName">Name</div>
+                    <div id="learnMoreFirstBrewed">First Brewed</div>
                     <div id="learnMoreIbu">Ibu</div>
                     <div id="learnMoreAbv">Abv</div>
                     <div id="learnMoreDescription">Description</div>
                     <div id="learnMoreFoodPairings">Food Pairings</div>
-                    <div id="learnMoreFirstBrewed">First Brewed</div>
-                    <div id="addToFavorites"><button id="favoriteButton"
-                            style="color:red; width: 20%; background-color: white;"
-                            onclick="setToLearnMoreFavorites(event)">Add to Favorites ♡</button></div>
+                    <div id="addToFavorites"><button id="favoriteButton" onclick="setToLearnMoreFavorites(event)">Add to
+                            Favorites ♡</button></div>
                 </div>
             </div>
         </div>

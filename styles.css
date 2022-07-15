@@ -11,8 +11,9 @@
 body {
   margin: 0;
   padding: 0;
-  background-image: url(https://americantaphouse.com/wp-content/uploads/2016/03/taps-with-hand-background.jpg);
+  background-image: url(https://envato-shoebox-0.imgix.net/f309/08f0-c751-4da9-ba9f-62c7a94fd21f/_K4A7247.jpg?auto=compress%2Cformat&fit=max&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&markalign=center%2Cmiddle&markalpha=18&w=700&s=371111811ab3e03a5f6dbedd0969929f);
   background-size: cover;
+  background-position: 0px;
 }
 
 #container {
@@ -28,6 +29,7 @@ body {
   align-content: center;
   justify-items: center;
   opacity: 0.95;
+  font-family: Copperplate;
 }
 
 #filters {
@@ -68,14 +70,15 @@ body {
   margin: 15px 0 0 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr 0.5fr 1fr 1fr;
   grid-template-areas:
-    "name name ibu abv"
+    "name name name name"
     "tagLine tagLine tagLine tagLine"
+    "abv abv ibu ibu"
     "learnMore learnMore learnMore learnMore";
   color: var(--content-text);
   font-size: 0.9em;
-  opacity: 0.95;
+  opacity: 0.9;
   font-weight: bold;
 }
 
@@ -90,8 +93,11 @@ button {
   background-color: var(--content-background);
   display: flex;
   justify-content: center;
-  align-items: center;
-  border-radius: 15px 0 0 0;
+  align-items: flex-end;
+  text-align: center;
+  border-radius: 15px 15px 0 0;
+  font-size: 1.5em;
+  font-family: Coperplate;
 }
 
 .ibu {
@@ -100,6 +106,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .abv {
@@ -108,7 +115,6 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 0 15px 0 0;
 }
 
 .tagLine {
@@ -116,7 +122,9 @@ button {
   background-color: var(--content-background);
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  text-align: center;
+  font-size: 0.9em;
 }
 
 .favorite {
@@ -124,7 +132,6 @@ button {
   background-color: var(--content-background);
   color: var(--button);
   transition: all 0.35s ease-in-out;
-  border-radius: 0 0 0 15px;
 }
 
 .favorite:hover {
@@ -139,6 +146,8 @@ button {
   color: var(--button);
   transition: all 0.35s ease-in-out;
   border-radius: 0 0 15px 15px;
+  font-size: 2em;
+  font-family: Copperplate;
 }
 
 .learnMore:hover {
@@ -149,12 +158,12 @@ button {
 
 #title {
   color: var(--title-text);
-  font-size: 1.75vw;
+  font-size: 1.85vw;
   white-space: nowrap;
   display: flex;
   align-items: center;
   font-weight: bold;
-  font-family: Georgia;
+  font-family: Copperplate;
 }
 
 #FIS {
@@ -224,96 +233,125 @@ button {
   grid-area: name;
   background-color: var(--content-background);
   color: var(--content-text);
-  opacity: 0.95;
+  opacity: 0.9;
   display: flex;
   justify-content: center;
+  font-weight: bold;
+  font-family: Copperplate;
+  font-size: 2em;
 }
 
 #learnMoreIbu {
   grid-area: learnMoreIbu;
   background-color: var(--content-background);
   color: var(--content-text);
-  opacity: 0.95;
+  opacity: 0.9;
   display: flex;
   justify-content: center;
+  font-weight: bold;
 }
 
 #learnMoreAbv {
   grid-area: learnMoreAbv;
   background-color: var(--content-background);
   color: var(--content-text);
-  opacity: 0.95;
+  opacity: 0.9;
   display: flex;
   justify-content: center;
+  font-weight: bold;
 }
 
 #learnMoreImage {
   grid-area: image;
   background-color: var(--content-background);
-  opacity: 0.95;
+  opacity: 0.9;
   display: flex;
   justify-content: center;
+  border-radius: 15px 15px 0 0;
 }
 
 #learnMoreDescription {
   grid-area: learnMoreDescription;
   background-color: var(--content-background);
   color: var(--content-text);
-  opacity: 0.95;
+  opacity: 0.9;
   justify-content: center;
   display: flex;
+  text-align: center;
+  padding-bottom: 15px;
+  padding-top: 10px;
+  font-weight: bold;
 }
 
 #learnMoreFoodPairings {
   grid-area: foodpairing;
   background-color: var(--content-background);
   color: var(--content-text);
-  opacity: 0.95;
+  opacity: 0.9;
   display: flex;
   justify-content: center;
+  font-weight: bold;
 }
 
 #learnMoreFirstBrewed {
   grid-area: firstbrewed;
   background-color: var(--content-background);
   color: var(--content-text);
-  opacity: 0.95;
+  opacity: 0.9;
   display: flex;
   justify-content: center;
+  font-weight: bold;
+  padding-bottom: 10px;
 }
 
 #learnMoreFavorites {
   grid-area: favorites;
   background-color: var(--content-background);
-  opacity: 0.95;
+  opacity: 0.9;
   display: flex;
   justify-content: center;
+}
+
+#favoriteButton {
+  color: var(--button);
+  width: 20%;
+  background-color: white;
+  font-size: 1.2em;
 }
 
 #backButton {
   display: none;
   color: var(--button);
+  font-family: Copperplate;
+  font-size: 1.2em;
+  width: 10vw;
 }
 
 #previousButton {
   background-color: lightgray;
-  width: 80px;
+  width: 100px;
+  font-family: Copperplate;
+  transition: all 0.35s ease-in-out;
 }
 
 #previousButton:hover {
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
   border-radius: 15px;
+  transition: all 0.35s ease-in-out;
 }
 
 #nextButton {
   background-color: lightgray;
-  width: 80px;
+  width: 100px;
+  font-family: Copperplate;
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
+  transition: all 0.35s ease-in-out;
 }
 
 #nextButton:hover {
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
   border-radius: 15px;
+  transition: all 0.35s ease-in-out;
 }
 
 #pageIndex {
@@ -321,7 +359,10 @@ button {
   justify-content: center;
   align-items: center;
   background-color: lightgray;
-  width: 80px;
+  width: 125px;
+  font-weight: bold;
+  font-family: Copperplate;
+  font-size: 1.2em;
 }
 
 #topButton {
@@ -333,6 +374,8 @@ button {
   width: 100px;
   color: var(--button);
   border: 2px solid black;
+  font-family: Copperplate;
+  font-weight: bold;
 }
 
 #backButton:hover {
@@ -350,6 +393,7 @@ button {
   color: var(--button);
   margin-left: auto;
   margin-right: auto;
+  border-radius: 0 0 15px 15px;
 }
 
 #search-bar {
@@ -368,6 +412,9 @@ button {
   width: 150px;
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
   transition: all 0.35s ease-in-out;
+  font-family: Copperplate;
+  font-size: 1.1em;
+  width: 175px;
 }
 #getRandomBeer:hover {
   cursor: url(https://cur.cursors-4u.net/food/foo-2/foo108.cur), auto !important;
@@ -409,11 +456,12 @@ button {
   background-color: var(--content-background);
   width: 94%;
   margin-top: 15px;
-  opacity: 0.95;
+  opacity: 0.9;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  color: var(--content-text)
+  color: var(--content-text);
+  overflow-y: scroll;
 }
 
 li {
@@ -421,12 +469,11 @@ li {
   color: var(--content-text);
 }
 
-li:hover {
-  cursor: pointer;
-}
-
 #favoritesList {
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 #settingsTab {
@@ -434,21 +481,20 @@ li:hover {
   width: 94%;
   margin-top: 15px;
   background-color: var(--content-background);
-  opacity: 0.95;
+  opacity: 0.9;
   grid-template-columns: repeat(1fr, 2);
   grid-template-rows: 0.5fr 0.5fr 1fr;
   grid-template-areas:
     "settingTitle settingTitle settingTitle settingTitle"
     "colorSetting colorSetting lightDarkMode lightDarkMode"
     "colorSetting colorSetting lightDarkMode lightDarkMode";
-    color: var(--content-text)
+  color: var(--content-text);
 }
 
 #settingsTitle {
   grid-area: settingTitle;
   display: flex;
   justify-content: center;
-
 }
 
 #colorSetting {
@@ -466,6 +512,7 @@ li:hover {
 h4 {
   display: flex;
   justify-content: center;
+  font-size: 1.4em;
 }
 
 #colorWheel {
@@ -482,7 +529,7 @@ h4 {
   width: 35%;
   height: 100px;
 }
-input[type=checkbox]{
+input[type="checkbox"] {
   height: 0;
   width: 0;
   visibility: hidden;
@@ -498,7 +545,7 @@ label {
   position: relative;
 }
 label:after {
-  content: '';
+  content: "";
   position: absolute;
   top: 5px;
   left: 5px;
@@ -517,4 +564,30 @@ input:checked + label:after {
 }
 label:active:after {
   width: 130px;
+}
+
+li:hover {
+  color: var(--button);
+  cursor: pointer;
+}
+
+li {
+  font-family: Rockwell;
+  font-size: 1.4em;
+  margin-top: 10px;
+}
+
+#colorSetting {
+  font-size: 1.4em;
+  font-family: Rockwell;
+}
+
+#lightDarkMode {
+  font-size: 1.4rem;
+  font-family: Rockwell;
+}
+
+form {
+  font-family: Copperplate;
+  font-size: 0.9em;
 }

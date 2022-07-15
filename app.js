@@ -5,6 +5,7 @@ let colorMode = "light"
 const navBar = document.querySelector("#navBar")
 const buttons = document.querySelector("#pageButtons")
 const contentArea = document.querySelector("#beerBrowse")
+const checkBox = document.querySelector("#checkbox")
 
 document.addEventListener("DOMContentLoaded", () => {
     checkStorage()
@@ -35,6 +36,12 @@ function checkStorage() {
         document.documentElement.style.setProperty('--button', refreshColor)
         document.documentElement.style.setProperty('--theme-background', refreshColor);
     }
+    if (localStorage.getItem('shade') === "dark") {
+        document.querySelector("#switch").click()
+    } else {
+        return
+    }
+  
 }
 
 function callBeer(page = 1) {
@@ -53,9 +60,18 @@ function callBeer(page = 1) {
 function searchByAbv(e) {
     e.preventDefault()
     let searchInput = document.querySelector("#search-bar").value
+    if (searchInput === "") {
+        return
+    }
     fetch(`https://api.punkapi.com/v2/beers?abv_gt=${searchInput}`)
         .then(res => res.json())
         .then(beersArr => {
+            console.log(beersArr);
+            if (beersArr.statusCode === 400) {
+                document.querySelector("#search-form").reset()
+                alert("That's not a number!")
+                return
+            }
             const beerClass = document.querySelectorAll(".beerContent")
             if (beerClass.length > 0) {
                 beerClass.forEach(beer => {
@@ -82,9 +98,17 @@ function searchByAbv(e) {
 function searchByIbu(e) {
     e.preventDefault()
     let searchInput = document.querySelector("#searchIbu-bar").value
+    if (searchInput === "") {
+        return
+    }
     fetch(`https://api.punkapi.com/v2/beers?ibu_gt=${searchInput}`)
         .then(res => res.json())
         .then(beersArr => {
+            if (beersArr.statusCode === 400) {
+                document.querySelector("#searchIbu-form").reset()
+                alert("That's not a number!")
+                return
+            }
             const beerClass = document.querySelectorAll(".beerContent")
             if (beerClass.length > 0) {
                 beerClass.forEach(beer => {
@@ -158,14 +182,21 @@ function getRandomBeer() {
 function searchByName(e) {
     e.preventDefault()
     let searchInput = document.querySelector("#searchName-bar").value
+    if (searchInput === "") {
+        return
+    }
     fetch(`https://api.punkapi.com/v2/beers?beer_name=${searchInput}`)
         .then(res => res.json())
         .then(beersArr => {
+            if (beersArr.length === 0) {
+                document.querySelector("#searchName-form").reset()
+                alert("No Names Found")
+                return
+            }
             const beerClass = document.querySelectorAll(".beerContent")
             if (beerClass.length > 0) {
                 beerClass.forEach(beer => {
                     beer.remove()
-                    // document.querySelector("#backButton").style.display = "block" uncomment to add the back button 
                 })
             }
             document.querySelector("#beerBrowse").scrollTop = 0;
@@ -191,7 +222,7 @@ function renderBeer(beerArr) {
         document.querySelector("#beerBrowse").appendChild(beerContent);
         let name = document.createElement("div")
         name.classList.add("name")
-        name.innerHTML = `Name:<br><br>${beer.name}`
+        name.textContent = beer.name
         let ibu = document.createElement("div")
         ibu.classList.add("ibu")
         ibu.innerHTML = `IBU:<br><br>${beer.ibu}`
@@ -200,7 +231,7 @@ function renderBeer(beerArr) {
         abv.innerHTML = `ABV:<br><br>${beer.abv}%`
         let tagLine = document.createElement("div")
         tagLine.classList.add("tagLine")
-        tagLine.innerHTML = `Tagline:<br><br>'${beer.tagline}'`
+        tagLine.innerHTML = `<i>"${beer.tagline}"</i>`
 
         let learnMore = document.createElement("button")
         learnMore.setAttribute("beerIndex", beer.id)
@@ -237,7 +268,7 @@ function loadLearnMore(e) {
                 beer.style.display = "none"
             })
             document.querySelector("#image").src = data[0].image_url
-            document.querySelector("#learnMoreName").innerText = `Name: ${data[0].name}`
+            document.querySelector("#learnMoreName").innerText = `${data[0].name}`
             document.querySelector("#learnMoreIbu").innerText = `IBU: ${data[0].ibu}`
             document.querySelector("#learnMoreAbv").innerText = `ABV: ${data[0].abv}`
             document.querySelector("#learnMoreDescription").innerText = data[0].description
@@ -261,6 +292,7 @@ function loadLearnMore(e) {
 }
 
 function learnMoreBackButton(e, scrollPosition = 0) {
+    document.querySelector("#beerBrowse").style.scrollBehavior = "auto"
     const backButton = document.querySelector("#backButton")
     if (backButton.getAttribute("filter") === "abv" || backButton.getAttribute("filter") === "ibu" || backButton.getAttribute("filter") === "name") {
         callBeer()
@@ -281,6 +313,7 @@ function learnMoreBackButton(e, scrollPosition = 0) {
         beer.style.display = "grid"
     })
     beerBrowse.scrollTo(0, scrollPosition)
+    document.querySelector("#beerBrowse").style.scrollBehavior = "smooth"
 }
 
 function setToLearnMoreFavorites(e) {
@@ -374,6 +407,8 @@ function loadFavorites() {
         })
     }
 
+    document.querySelector("#beerBrowse").style.scrollBehavior = "smooth"
+    document.querySelector("#beerBrowse").style.overflowY = "hidden"
     document.querySelector("#settingsTab").style.display = "none"
     document.querySelector("#beerBrowse").style.gridTemplateColumns = "1fr"
     document.querySelector("#favoritesTab").style.display = "flex"
@@ -456,6 +491,7 @@ function loadFavoriteDetails(e) {
 
 function loadSettings() {
 
+    document.querySelector("#beerBrowse").style.scrollBehavior = "smooth"
     document.querySelector("#pageButtons").style.display = "none"
     document.querySelector("#filters").style.display = "none"
     document.querySelector("#beerBrowse").style.overflowY = "hidden"

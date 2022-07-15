@@ -2,7 +2,7 @@
   "favorites": [
     {
       "id": 1,
-      "heart": true
+      "heart": false
     },
     {
       "id": 2,
@@ -10,7 +10,7 @@
     },
     {
       "id": 3,
-      "heart": true
+      "heart": false
     },
     {
       "id": 4,
@@ -94,7 +94,7 @@
     },
     {
       "id": 24,
-      "heart": false
+      "heart": true
     },
     {
       "id": 25,
@@ -106,7 +106,7 @@
     },
     {
       "id": 27,
-      "heart": false
+      "heart": true
     },
     {
       "id": 28,
@@ -198,7 +198,7 @@
     },
     {
       "id": 50,
-      "heart": false
+      "heart": true
     },
     {
       "id": 51,
@@ -790,7 +790,7 @@
     },
     {
       "id": 198,
-      "heart": false
+      "heart": true
     },
     {
       "id": 199,
