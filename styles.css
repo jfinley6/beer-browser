@@ -45,7 +45,7 @@ body {
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   padding-bottom: 10px;
-  overflow-y: scroll;
+  overflow-y: auto;
   width: 100vw;
   scroll-behavior: smooth;
 }
@@ -462,7 +462,8 @@ button {
   align-items: center;
   text-align: center;
   color: var(--content-text);
-  overflow-y: scroll;
+  overflow-y: auto;
+  border-radius: 15px;
 }
 
 li {
