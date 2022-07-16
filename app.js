@@ -167,7 +167,7 @@ function getRandomBeer() {
                 document.querySelector("#image").src = randomBeer[0].image_url
             }
 
-            fetch(`http://localhost:3000/favorites/${beerIndex}`)
+            fetch(`https://phase-1-project.herokuapp.com/favorites/${beerIndex}`)
                 .then(res => res.json())
                 .then(favoriteData => {
                     if (favoriteData.heart === true) {
@@ -282,7 +282,7 @@ function loadLearnMore(e) {
             document.querySelector("#learnMoreFirstBrewed").innerText = `First Brewed: ${data[0].first_brewed}`
             document.querySelector("#addToFavorites").setAttribute("index", data[0].id)
 
-            fetch(`http://localhost:3000/favorites/${beerIndex}`)
+            fetch(`https://phase-1-project.herokuapp.com/favorites/${beerIndex}`)
                 .then(res => res.json())
                 .then(favoriteData => {
                     if (favoriteData.heart === true) {
@@ -325,7 +325,7 @@ function learnMoreBackButton(e, scrollPosition = 0) {
 function setToLearnMoreFavorites(e) {
     const beerIndex = e.target.parentElement.attributes[1].textContent;
     if (e.target.textContent === "Add to Favorites ♡") {
-        fetch(`http://localhost:3000/favorites/${beerIndex}`, {
+        fetch(`https://phase-1-project.herokuapp.com/favorites/${beerIndex}`, {
             method: 'PATCH',
             body: JSON.stringify({
                 heart: true,
@@ -338,7 +338,7 @@ function setToLearnMoreFavorites(e) {
             e.target.textContent = "Remove From Favorites ♥"
         })
     } else {
-        fetch(`http://localhost:3000/favorites/${beerIndex}`, {
+        fetch(`https://phase-1-project.herokuapp.com/favorites/${beerIndex}`, {
             method: 'PATCH',
             body: JSON.stringify({
                 heart: false,
@@ -426,7 +426,7 @@ function loadFavorites() {
     document.querySelector("#pageIndex").style.display = "none"
     document.querySelector("#filters").style.display = "none"
     document.querySelector("#container").style.gridTemplateRows = "0.1fr 1fr"
-    fetch("http://localhost:3000/favorites")
+    fetch("https://phase-1-project.herokuapp.com/favorites")
         .then(res => res.json())
         .then(datas => {
             Promise.all(datas.map(favorite => {
@@ -486,7 +486,7 @@ function loadFavoriteDetails(e) {
             document.querySelector("#learnMoreFirstBrewed").innerText = `First Brewed: ${data[0].first_brewed}`
             document.querySelector("#addToFavorites").setAttribute("index", data[0].id)
 
-            fetch(`http://localhost:3000/favorites/${beerIndex}`)
+            fetch(`https://phase-1-project.herokuapp.com/favorites/${beerIndex}`)
                 .then(res => res.json())
                 .then(favoriteData => {
                     if (favoriteData.heart === true) {
