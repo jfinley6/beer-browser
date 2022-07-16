@@ -35,12 +35,15 @@ function checkStorage() {
         let refreshColor = localStorage.getItem('color')
         document.documentElement.style.setProperty('--button', refreshColor)
         document.documentElement.style.setProperty('--theme-background', refreshColor);
+        document.querySelector("#favcolor").value = refreshColor;
+        console.log(document.querySelector("#favcolor").value);
     }
     if (localStorage.getItem('shade') === "dark") {
         document.querySelector("#switch").click()
     } else {
         return
     }
+   
   
 }
 
