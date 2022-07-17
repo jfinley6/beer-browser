@@ -188,7 +188,6 @@ button {
   border-radius: 15px;
 }
 
-
 #settings {
   display: flex;
   justify-content: center;
@@ -592,4 +591,68 @@ li {
 form {
   font-family: Copperplate;
   font-size: 0.9em;
+}
+
+@media screen and (max-width: 1050px) {
+  #beerBrowse {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  #learnMore {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  #beerBrowse {
+    overflow-y: scroll !important;
+  }
+
+  #settingsTab {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  #favoritesTab {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  #browse,
+  #favorites,
+  #settings {
+    font-size: 1.25em;
+  }
+
+  #filters {
+    flex-wrap: wrap;
+  }
+
+  #getRandomBeer {
+    margin-top: 5px;
+  }
+
+  #filters {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}
+
+@media screen and (max-width: 840px) {
+  #browse,
+  #favorites,
+  #settings {
+    font-size: 100%;
+  }
+
+  #getRandomBeer {
+    margin-right: 92px;
+  }
+}
+
+@media screen and (max-width: 840px) {
+  #beerBrowse {
+    grid-template-columns: 1fr !important;
+  }
 }

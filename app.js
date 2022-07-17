@@ -17,15 +17,14 @@ contentArea.addEventListener('scroll', function (event) {
         document.querySelector("#topButton").style.display = "none"
     }
     else {
-        if (contentArea.scrollHeight - contentArea.scrollTop - contentArea.clientHeight < 800) {
+        if (contentArea.scrollHeight - contentArea.scrollTop - contentArea.clientHeight < 3000) {
             document.querySelector("#topButton").style.display = "block"
             document.querySelector("#topButton").style.visibility = "visible"
         }
-        if (contentArea.scrollHeight - contentArea.scrollTop - contentArea.clientHeight > 1600) {
+        if (contentArea.scrollHeight - contentArea.scrollTop - contentArea.clientHeight > 3000) {
             document.querySelector("#topButton").style.display = "none"
         }
     }
-
 });
 
 function checkStorage() {
