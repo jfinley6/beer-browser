@@ -12,6 +12,19 @@ document.addEventListener("DOMContentLoaded", () => {
     callBeer()
 })
 
+addEventListener("DOMContentLoaded", (event) => {
+    document.body.style.backgroundImage = "none"
+    fetch("https://phase-1-project.herokuapp.com/favorites")
+    .then((res) => {
+        if (res.status === 200) {
+            document.querySelector("#heroku").style.display = "none"
+            document.querySelector("#container").style.display = ""
+            document.body.style.backgroundImage =
+              "url(https://envato-shoebox-0.imgix.net/f309/08f0-c751-4da9-ba9f-62c7a94fd21f/_K4A7247.jpg?auto=compress%2Cformat&fit=max&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&markalign=center%2Cmiddle&markalpha=18&w=700&s=371111811ab3e03a5f6dbedd0969929f)";
+        }
+    })
+});
+
 contentArea.addEventListener('scroll', function (event) {
     if (contentArea.scrollTop === 0) {
         document.querySelector("#topButton").style.display = "none"

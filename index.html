@@ -17,7 +17,11 @@
     </head>
 
     <body>
-        <div id="container">
+        <div style="width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column"
+            id="heroku">
+            <div class="loader"></div><b style="font-size: 1.2em;">Heroku Loading</b>
+        </div>
+        <div style="display: none" id="container">
             <div id="navBar">
                 <div id="titleSection">
                     <div id="logo">
@@ -82,7 +86,7 @@
                     <div id="lightDarkMode">
                         <h4 style="font-size: 1.4em">Light/Dark Mode</h4>
                         <div id="lightDarkButton">
-                            <input type="checkbox" id="switch" onchange="changeLightDark(event)"/><label
+                            <input type="checkbox" id="switch" onchange="changeLightDark(event)" /><label
                                 for="switch"></label>
                         </div>
                     </div>
