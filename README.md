@@ -2,6 +2,7 @@
 
 An app which allows users to browse from beers from an API called PunkAPI. Beers will be displayed in a grid that is divided up into multiple pages. Beers can be searched by ABV, IBU, and Name. Clicking any beer on the page will take you to a details page where you can favorite it. Clicking the favorites tab will take you to a list of all the favorites. The settings tab will allow you to change the header color as well as toggle light/dark mode. These settings will be saved into local storage.
 
+* [Live Version](https://jfinley6.github.io/phase-1-project/)
 
 ## Built With
 * [JavaScript](https://devdocs.io/javascript/) - Programming language used for dynamic features
