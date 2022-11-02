@@ -1,22 +1,22 @@
-# phase-1-project
-    PITCH 
+# Phase-1 Project Beer Browser
 
-We are creating a website that allows you to search through 350+ beers. Each beer will have detailed information presented when searched. 
+An app which allows users to browse from beers from an API called PunkAPI. Beers will be displayed in a grid that is divided up into multiple pages. Beers can be searched by ABV, IBU, and Name. Clicking any beer on the page will take you to a details page where you can favorite it. Clicking the favorites tab will take you to a list of all the favorites. The settings tab will allow you to change the header color as well as toggle light/dark mode. These settings will be saved into local storage.
 
 
-    USER STORIES 
+## Built With
+* [JavaScript](https://devdocs.io/javascript/) - Programming language used for dynamic features
+* [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) - Used to define structure of page
+* [CSS](https://devdocs.io/css/) - Used to style the page
+* [json-server](https://maven.apache.org/) - Fake REST API used to load initial favorites
+* [PunkAPI](https://punkapi.com/documentation/v2) - BeerAPI
 
-As a user, I should be abke to:
 
-1) See a selection of beers with differnet information displayed upon page load
+## Author
 
-2) For each beer, click a button "Learn More" that will displayed the beer clicked with more detailed information such as, IBU,ABV, Descip, Tagline, Food pairings, Image (if available), Year brewed
+* **John Finley** - [Github](https://github.com/jfinley6) | [LinkedIn](https://www.linkedin.com/in/john-tyler-finley/) 
 
-3) "Add to Favorites" button - that will add the selected beer to the favorites.
-    3a) click the favorites tab, showing the users favorited beers - this should persist on refresh
+* **Kelan Hamman** - [Github](https://github.com/Kelan6) | [LinkedIn](https://www.linkedin.com/in/kelanhamman/) 
 
-4) click on settings tab - allowing the user to switch themes and display mode
+## Acknowledgments
 
-5) "Inside the Filters Tabs" -we should be able to filter by name, IBU and ABV.
-
-6) Scroll through 1st 78 beers, then be able to click "Next Page" button - loading the next 78 beers. 
+* Thanks to Flatiron for giving us the tools to complete this!
